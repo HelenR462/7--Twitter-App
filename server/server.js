@@ -7,12 +7,14 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/name", (req, res) => {
-  const response={
-    name:"Andy",
-  }
+  const response = {
+    name: "Andy",
+  };
+  // console.log("Andy is the best!")
 
-  res.send(response)
+  res.send(response);
 });
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

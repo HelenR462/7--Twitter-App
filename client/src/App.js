@@ -12,6 +12,7 @@ function App() {
       // update 'name' to be the name from our server
       setName(response.data.name);
     });
+    
   }, []);
 
   return (
