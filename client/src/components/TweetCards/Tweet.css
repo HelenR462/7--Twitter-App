@@ -3,3 +3,7 @@
   height:"150"; 
   border:1px solid grey;
 }
+
+.card border-info mb-3{
+ max-width: 18rem;
+}
