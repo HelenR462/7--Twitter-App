@@ -17,6 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
 }
