@@ -1,0 +1,19 @@
+  #hero .responsive {
+  width:100%;
+  height: auto;
+
+}
+
+.btn-outline-primary{
+  border: blue 1px solid;
+  width: 135px;
+  font: x-large;
+  color: blue;
+  background-color: white;
+}
+
+.btn-primary btn-lg{
+  border: blue 1px solid;
+  width: 135px;
+  font: x-large;
+}

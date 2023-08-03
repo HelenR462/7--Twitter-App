@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
+import HomeNavBar from "./HomeNavBar";
+import "./Home.css";
 
-function Main() {
+function HomeMain() {
   return (
-    <div>
-      
+    <div id="hero">
+      <HomeNavBar />
+      <img className="responsive"
+        src="../images/alexander-shatov-SXfwXS0jWNg-unsplash (1).jpg"
+        alt="twitter"
+      ></img>
+    
     </div>
   );
 }
 
-export default Main;
+export default HomeMain;
