@@ -1,6 +1,30 @@
-.avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+background
+
+.btn-outline-random{
+  border: .5px solid gainsboro;
+  /* border-radius: 33%; */
+  height:9vh;
+  box-shadow:  .5px 1px ;
+  margin:2px ;
+  margin-bottom:2px;
+  width: 135px;  
+ /* padding:1px; */
+  font-size: large;
+  color:white;
+  background-color: #1DA1F2;
+}
+
+
+.search-box-random{
+  justify-self:right;
+  margin-left: 750px;
+  height:6vh;
+  width:18vw;
+  color:#1DA1F2;
+  border: 1px solid gray
+}
+
+.random-user{
+
+  color:#1DA1F2;
 }

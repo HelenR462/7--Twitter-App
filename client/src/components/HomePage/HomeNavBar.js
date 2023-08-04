@@ -4,13 +4,15 @@ function HomeNavBar() {
   return (
     <nav>
       <button className="btn btn-outline-primary">
-        <img src="../images/icons8-twitter-48.png" alt="twitter logo"></img>
+        <a href="/">Home</a>
       </button>
-      <button className="btn btn-primary btn-lg">
-        Random Tweet
+
+      <button className="btn-lg">
+        <a href="Homepage">Random Tweet</a>
       </button>
 
       <input
+        className="search-box"
         type="search"
         placeholder="Search..."
         src="../images/icones8-search-24.png"
