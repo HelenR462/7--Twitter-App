@@ -1,77 +1,74 @@
 import React from "react";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import "./RandomTweet.css";
-import { useState } from "react";
+// import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function RandomTweet() {
-  <RandomNavBar />;
-  
-  const [setRetweetCounter] = useState(0);
-  const [setHeartCounter] = useState(0);
 
-  const increment = (Number) => {
-    setRetweetCounter((count) => count++);
-    setHeartCounter((count) => count++);
-  };
-
-  const Card = {
-    userName: "Jane Doe",
-    userHandle: "@jane_doe",
-    date: new Date(),
-  };
-
+  let navigate = useNavigate();
+ 
   return (
-    <div className="card border-info mb-3">
-      <div className="card-header">
-        <div className="avatar">
-          <img src="../images/icons8-user-avatar-50.png" alt=""></img>
-        </div>
+    <div>
+      <RandomNavBar />
 
-        <div className="user">
-          <p className="userName">{Card.userName}</p>
-          <p className="userHandle">{Card.userHandle}</p>
-          <p className="date" value="date.now()">
-            {Card.tweetDate}
-          </p>
-          <p className="card-body">
-            <span className="card-text" type="text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content. Some quick example text to build on
-              the card title and make up the bulk of the card's content.
-            </span>
-          </p>
-          <div className="card-footer">
-            <div className="icons">
-              <img
-                className="icon-img"
-                src="../images/icons8-speech-bubble-24.png"
-                alt="speach bubble"
-              ></img>
-              <img
-                className="icon-img"
-                onClick={increment}
-                src="../images/icons8-retweet-24.png"
-                alt="retweet"
-              ></img>
-              <span>{Number}</span>
-              <img
-                className="icon-img"
-                onClick={increment}
-                src="../images/icons8-heart-24.png"
-                alt="heart"
-              ></img>
-              <span>{Number}</span>
-              <img
-                className="icon-img"
-                src="../images/icons8-bookmark-24.png"
-                alt="bookmark"
-              ></img>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default RandomTweet;
+     
+    <div className="avatar-container"  >
+            <div className="fave-avatar"  onClick={()=>{navigate("/")}}>
+            <a href="../images/">
+                <img className="avatar" src="../images/Elon_Musk.jpg" alt="" />
+                <p className="userName">Elon Musk</p>
+              </a>    
+            <a href="../images/">
+                <img className="avatar" src="../images/francine_rivers.jpg" alt="" />
+                <p className="userName">Francine Rivers</p>
+              </a>
+              <a href="../images/">
+                <img className="avatar" src="../images/julia_roberts.jpg" alt="" />
+                <p className="userName">Julia Roberts</p>
+              </a>
+              <a href="../images/">
+                  <img className="avatar" src="../images/Quizscape.jpg" alt="" />
+                  <p className="userName">Quizscape</p>
+                </a>
+              <a href="../images/">
+                <img className="avatar" src="../images/The_Weather_Network.png" alt="" />
+                <p className="userName">The Weather Network</p>
+              </a>
+              </div>
+              </div>
+     </div>
+     );
+     }
+       export default RandomTweet;
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     

@@ -2,14 +2,17 @@ import React from "react";
 import HomeNavBar from "./HomeNavBar";
 import "./Home.css";
 
+
 function HomeMain() {
+
+
   return (
     <div id="hero">
       <HomeNavBar />
       <div className="text">
         <h1>Tweet or Random Pick</h1>
         <h2>
-          Connect with the 3F's: friends,
+        Connect with the 3F's: friends,
         family and, your favorite personality!
         </h2>   
       </div>

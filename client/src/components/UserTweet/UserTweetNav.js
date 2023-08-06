@@ -1,29 +1,22 @@
 import React from "react";
+import "./UserTweet.css";
+import { useNavigate } from "react-router-dom";
 
 function UserTweetNav() {
+  
+  let navigate = useNavigate();
   return (
-    <div>
-     <nav>
-      <div className="btn">
-        <button className="btn btn-outline-user">
-          <a href="/">Home</a>
-        </button>
-        <button className="btn-lg-user">
-          <a href="Homepage">Random Tweet</a>
-        </button>
-      </div>
-      <form >
-        <input className="search-box-user" placeholder="Tweet...">
-        </input>
-       <button className="submit" type="submit" 
-      //  onClick={}
-      >
-        Search</button>
-      </form>
-    </nav>
-
-
-    </div>
+      <nav>
+        <div className="btn">
+          <button className="btn btn-outline-primary">
+            <a href="/">Home</a>
+          </button>
+          <button className="btn-lg"  onClick={()=> {navigate("/randomTweet")}}>
+            <a href="Homepage">Random Tweet</a>
+          </button>
+        </div>
+       
+      </nav>
   );
 }
 
