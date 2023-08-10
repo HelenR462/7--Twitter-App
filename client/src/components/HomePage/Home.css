@@ -1,27 +1,27 @@
-  .responsive  {
+  .container {
   width:100%;
-  height:auto;
-   overflow: hidden; 
+  height:539px;
+ 
 }
 
 .text{
   position: absolute;
-  top: 25%;
+  top: 35%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(0, 179, 255)
+  transform: translate(-40%, -50%);
+  color: rgb(0, 179, 255);
+ 
   
 }
 
 
 .btn-outline-primary{
-  width: 100px;  
+  width: 150px;  
   height:7vh;
-  margin-top:10px ; 
+  margin-top:40px ; 
   font-size: large;
   margin-bottom:2px;
-  margin-left: 70px;
-  margin-right: 2px;
+  margin-left: 40px;
   border: 1px solid rgb(234, 237, 240);
   box-shadow: .5px 1px 0 .5px rgb(0, 179, 255);
   border-radius: 12px;
@@ -31,32 +31,33 @@
 }
 
 .btn-outline{
-  width: 100px;  
+  width: 150px;  
  height:7vh;
- margin-top:10px ; 
+ margin-top:40px ; 
  font-size: large;
  margin-bottom:2px;
- margin-left: 70px;
+ margin-left: 205px;
  margin-right: 2px;
  border: 1px solid rgb(234, 237, 240);
  box-shadow: .5px 1px 0 .5px rgb(0, 179, 255);
  border-radius: 12px;
  background-color: rgb(0, 179, 255); 
- /* position:absolute; */
+ position:absolute; 
  
 }
 
 .btn-lg{
    width: 150px;  
    height:7vh;
-    margin-top:10px ; 
+    margin:40px ; 
    font-size: large;
-   margin-left: 180px;
+   margin-left: 367px;
    border: 1px solid  rgb(233, 236, 239);
    box-shadow: .5px 1px 0 .5px  rgb(0, 179, 255);
    border-radius: 12px;
    background-color:rgb(0, 179, 255) ; 
    position:absolute;
+  
 } 
 
 a{
@@ -65,31 +66,42 @@ a{
   color: white;
 }
 
-
- .search-box{
-  height:6vh;
-  width:30vw;
-  height: 7vh;
+.search-form{
+  float:right; 
   
-   margin-top: 10px; 
-   margin-bottom: 10px;
-  border: 2px solid  rgb(179, 177, 177);
-  border-radius: 3px;
-  background-color: transparent; 
+}
+
+
+  input{
+  height:6.5vh;
+  width: 370px;
+  margin-top: 40px; 
+  margin-bottom: 10px;
+  background-color:rgb(232, 237, 239) ;
+  color:rgb(65, 66, 67);
   font-size: large;
   padding-left:7px;
-  padding-left:30px;
-  background: transparent;
+  border-radius:5px 0px 0px 5px;
+  position: relative;
+  border: solid 1px rgb(0, 179, 255) ;
  
- }
+ } 
 
 
 .submit{
-  height: 7vh;
+  height: 6.5vh;
+  width:7vw;
+  margin-right: 40px;
   font-size: large;
-   margin-left: 35%;  
+  display:inline-block;
+  justify-self: end;
   color: white;
-  border: solid 1px rgb(179, 177, 177);
+  border: solid 1px rgb(0, 179, 255) ;
   background-color:rgb(0, 179, 255) ;
-  border-radius: 3px;
+  border-radius:0 5px 5px 0;
+ 
 }
+
+.submit:hover{
+ background-color:rgb(3, 148, 210);
+} 

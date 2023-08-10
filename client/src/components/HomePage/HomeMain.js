@@ -17,7 +17,7 @@ function HomeMain() {
         </h2>   
       </div>
       <img
-        className="responsive"
+        className="container"
         src="../images/ilgmyzin-8ays4w9MDVk-unsplash.jpg"
         alt="twitter"
       ></img>

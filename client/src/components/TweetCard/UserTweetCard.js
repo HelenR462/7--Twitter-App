@@ -1,38 +1,52 @@
 import React from "react";
-import "./RandomTweet.css";
 import { useState } from "react";
+import "./UserTweetCard.css";
 
-function RandomUser() {
+function TweetCard() {
   const [retweetCounter, setRetweetCounter] = useState(0);
   const [likesCounter, setLikesCounter] = useState(0);
 
+
   const count = () => {
     setRetweetCounter(retweetCounter + 1);
+console.log("likesCounter :",likesCounter);
+
     setLikesCounter(likesCounter + 1);
   };
 
-  const Card = {
+  
+  
+  const card = {
     userName: "Jane Doe",
     userHandle: "@jane_doe",
-    date: new Date(),
+    date: " August 6, 2023"   
+       //new Date(),
   };
 
   return (
-    <div className="card border-info mb-3">
-      <div className="card-header">
-        <div className="user">
-          <p className="userName">{Card.userName}</p>
-          <p className="userHandle">{Card.userHandle}</p>
-          <p className="date" value="date.now()">
-            {Card.tweetDate}
-          </p>
-          <p className="card-body">
+
+  
+    <div className="container">
+      <div className="card border-info mb-3">
+        <div className="card-header">
+          <a href="./RandomTweet">
+            <img src="./images/icons8-user-avatar-50 (1).png" alt="" />
+          </a>
+          
+         <ul className="user">
+            <li className="userName">{card.userName}</li>
+            <li className="userHandle">{card.userHandle}</li>
+            <li className="date" value="date.now()">
+              *{card.date}
+            </li>
+          </ul>
+          <div className="card-body">
             <span className="card-text" type="text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content. Some quick example text to build on
               the card title and make up the bulk of the card's content.
             </span>
-          </p>
+          </div>
           <div className="card-footer">
             <div className="icons">
               <img
@@ -41,8 +55,7 @@ function RandomUser() {
                 alt="speach bubble"
               ></img>
 
-              {/*=> add TWITTER URL TO REPLACE IMAGES FILE?? */}
-              <a href="../images/">
+              <a href="/TweetCard">
                 <img
                   className="icon-img"
                   onClick={count}
@@ -51,25 +64,32 @@ function RandomUser() {
                 />
                 <span>{count}</span>
               </a>
-              <a href="../images/">
+              <a href="/TweetCard">
                 <img
                   className="icon-img"
                   onClick={count}
                   src="../images/icons8-heart-24.png"
                   alt="heart"
                 />
+                <span>{count}</span>
               </a>
               <img
                 className="icon-img"
                 src="../images/icons8-bookmark-24.png"
                 alt="bookmark"
               ></img>
+               <img
+                className="icon-img-upload"
+                src="../images/icons8-upload-24.png"
+                alt="upload"
+              ></img>
             </div>
           </div>
         </div>
       </div>
     </div>
+  
   );
 }
 
-export default RandomUser;
+export default TweetCard;

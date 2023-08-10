@@ -1,6 +1,7 @@
 import React from "react";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import "./RandomTweet.css";
+
 // import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,36 +13,41 @@ function RandomTweet() {
   return (
     <div>
       <RandomNavBar />
-
-     
+  
     <div className="avatar-container"  >
-            <div className="fave-avatar"  onClick={()=>{navigate("/")}}>
-            <a href="../images/">
+            <div className="fave-avatar"  
+            
+            // onClick={()=>{navigate("/RandomTweet")}}
+         
+         >
+            <a href="./TweetCard" onClick={()=>{navigate("")}}>
                 <img className="avatar" src="../images/Elon_Musk.jpg" alt="" />
                 <p className="userName">Elon Musk</p>
               </a>    
-            <a href="../images/">
+            <a href="./TweetCard/" onClick={()=>{navigate("/RandomTweet")}}>
+
                 <img className="avatar" src="../images/francine_rivers.jpg" alt="" />
                 <p className="userName">Francine Rivers</p>
               </a>
-              <a href="../images/">
+             <a href="./TweetCard/" onClick={()=>{navigate("/RandomTweet")}}>
                 <img className="avatar" src="../images/julia_roberts.jpg" alt="" />
                 <p className="userName">Julia Roberts</p>
               </a>
-              <a href="../images/">
+              <a href="./TweetCard/RandomTweet/" onClick={()=>{navigate("/RandomTweet")}}>
                   <img className="avatar" src="../images/Quizscape.jpg" alt="" />
                   <p className="userName">Quizscape</p>
                 </a>
-              <a href="../images/">
+                <a href="./TweetCard/" onClick={()=>{navigate("/RandomTweet")}}>
                 <img className="avatar" src="../images/The_Weather_Network.png" alt="" />
                 <p className="userName">The Weather Network</p>
               </a>
               </div>
-              </div>
+          </div>
      </div>
      );
      }
-       export default RandomTweet;
+ 
+ export default RandomTweet;
      
      
      

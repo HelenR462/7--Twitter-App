@@ -1,30 +1,32 @@
-import React from "react";
-import { useState } from "react";
-import UserTweetNav from "../UserTweet";
-import {useNavigate} from "react-route-dom";
+import React, { useState } from "react";
+// import UserTweetNav from "./UserTweetNav";
+import "./UserTweet.css";
 
 
 function UserTweet() {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
-let navigate = useNavigate();
-
+  
   return (
     <div>
-    <UserTweetNav />
-
-    <form className="search-box">
-          <input  type="text" 
-          value={search} 
-          onClick={()=>{navigate("/")}}
-          onChange={(e) => setSearch(e.target.value)} 
-          placeholder="Tweet...">
-          </input>
-         <button className="submit" type="submit" 
-        
-        >
-          Search</button>
-        </form>
+      {/* <UserTweetNav /> */}
+      <div className="tweet-container">
+        <div className="tweet-input">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Tweet..."
+          ></input>
+          <button
+            className="tweet-submit"
+            onClick={(e) =>setSearch(e.target.value)}
+           type="submit"
+          >
+            Search
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

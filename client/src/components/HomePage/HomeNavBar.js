@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+;
 
 function HomeNavBar() {
-  let navigate = useNavigate();
+ 
 
   const [search, setSearch] = useState("");
 
@@ -13,13 +13,13 @@ function HomeNavBar() {
           <a href="/">Home</a>
         </button>
         <button className="btn btn-outline">
-          <a href="/">User</a>
+          <a href="/userTweet">Tweet</a>
         </button>
         <button className="btn-lg">
           <a href="/randomTweet">Random Tweet</a>
         </button>
       </div>
-      <form>
+      <form className="search-form">
         <input
           className="search-box"
           type="text"
