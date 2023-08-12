@@ -25,16 +25,15 @@ function App() {
   };
 
   useEffect(() => {
-  
-      // .get("/api.swapi.dev/")
-   fetch("/api/card") //fetch function passing the url
+    // .get("/api.swapi.dev/")
+    fetch("/api/card") //fetch function passing the url
       .then((response) => {
         return response.json();
-      // .then((response) => {
-      //   setUserName(response.data);
-      //   setuserHandle(response.data);
-      //   setContent(response.data);
-      //   setDate(response.data);
+        // .then((response) => {
+        //   setUserName(response.data);
+        //   setuserHandle(response.data);
+        //   setContent(response.data);
+        //   setDate(response.data);
       });
   }, []);
 
@@ -57,8 +56,7 @@ function App() {
             }
           ></Route>
           <Route path="*" element={<NoPage />} />
-          <Route path="/Card" element={<Card 
-          card={card}/>}></Route>
+          <Route path="/Card" element={<Card card={card} />}></Route>
         </Routes>
         {/* <UserTimeDate/> */}
       </div>
