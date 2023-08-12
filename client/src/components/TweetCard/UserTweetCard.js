@@ -17,8 +17,8 @@ function TweetCard({ userName, userHandle, content, date }) {
           <a href="./RandomTweet">
             <img src="./images/icons8-user-avatar-50 (1).png" alt="" />
           </a>
-
           <ul className="user">
+            
             <li className="userName">{userName}</li>
             <li className="userHandle">{userHandle}</li>
             <li className="date" value="date.now()">
@@ -27,10 +27,10 @@ function TweetCard({ userName, userHandle, content, date }) {
           </ul>
           <div className="card-body">
             <span className="card-text" type="text" valu="text">
-              {content}
-              {/* Some quick example text to build on the card title and make up the
+              {/* {content} */}
+               Some quick example text to build on the card title and make up the
               bulk of the card's content. Some quick example text to build on
-              the card title and make up the bulk of the card's content. */}
+              the card title and make up the bulk of the card's content. 
             </span>
           </div>
           <div className="card-footer">

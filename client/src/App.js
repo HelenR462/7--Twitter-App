@@ -18,23 +18,19 @@ function App() {
   const [date, setDate] = useState();
 
   const card = {
-    userName: "Isaias Afeworki",
-    userHandle: "@wediAfom",
+    userName: "Elon Musk",
+    userHandle: "@elonmusk",
     content: "text",
     date: new Date(),
   };
 
   useEffect(() => {
-    // .get("/api.swapi.dev/")
-    fetch("/api/card") //fetch function passing the url
-      .then((response) => {
-        return response.json();
-        // .then((response) => {
-        //   setUserName(response.data);
-        //   setuserHandle(response.data);
-        //   setContent(response.data);
-        //   setDate(response.data);
-      });
+    fetch("/api/card").then((response) => {
+      setUserName(response.data);
+      setuserHandle(response.data);
+      setContent(response.data);
+      setDate(response.data);
+    });
   }, []);
 
   return (
@@ -44,19 +40,9 @@ function App() {
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/RandomTweet" element={<RandomTweet />}></Route>
           <Route path="/UserTweet" element={<UserTweet />}></Route>
-          <Route
-            path="/TweetCard"
-            element={
-              <TweetCard
-                setUserName={card.userName}
-                setuserHandle={card.userHandle}
-                setContent={card.content}
-                setDate={card.date}
-              />
-            }
-          ></Route>
+          <Route path="/TweetCard" element={<TweetCard />}></Route>
           <Route path="*" element={<NoPage />} />
-          <Route path="/Card" element={<Card card={card} />}></Route>
+          <Route path="/Card" element={<Card />}></Route>
         </Routes>
         {/* <UserTimeDate/> */}
       </div>
