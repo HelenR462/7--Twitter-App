@@ -1,17 +1,13 @@
 .container{
   background-color: white;
-  max-width: 700px ;
-  max-height:418px ;
+  max-width: 650px ;
+  max-height:375px ;
  color: rgb(162, 161, 161); 
   margin-top:10%;
   margin-left:10%;
   font-family:Arial, Helvetica, sans-serif;
 }
-
-/* card border-info mb-3{
  
-} */
-
 .card-header{
  
   position: relative;
@@ -21,7 +17,7 @@
   margin: 50px;
  
   }
-   img{
+  a img{
     margin-top:35px; 
      margin-left:30px; 
    }
@@ -36,7 +32,6 @@
    }
 
    .userName{
-   
     font-weight: 600;
     color:rgb(47, 46, 46);
    }
@@ -61,16 +56,22 @@
   
   }
   
-  .card-footer{
-  margin-left:59px;
-  color:grey;
-      }
-
-  .icon{
-    margin-left:30px;
+  
+  .icons{
+    display:flex;
+    align-items: center;
+    margin-right:50px;
+    justify-content: space-evenly; 
     
-  }
+}  
+  
+ .icon-heart{
+  margin-left:35%;
+}
 
-/* .icon-img-upload{
-color:rgb(149, 32, 32);
-} */
+.counts{
+  color: rgb(68, 68, 68);
+  margin-top:-25px;
+  margin-left:70px;
+  font-size:medium;
+}

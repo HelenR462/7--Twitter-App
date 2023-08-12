@@ -3,10 +3,12 @@ import UserTweetCard from "./UserTweetCard"
 import "./UserTweetCard"
 
 
-function Card() {
+function Card({card}) {
   return (
     <div>
-    <UserTweetCard/>
+    <UserTweetCard
+    card={card}
+    />
     <div>
      
     </div>

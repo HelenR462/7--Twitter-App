@@ -3,39 +3,30 @@
  display:flex;
  flex-direction:row;
  width:60%;
- height: 730px;
- justify-content:center; 
+ height: 500px;
  align-items: center;
 
 }
 
 p{
-  font-size: small;
+  font-size: medium;
+  margin-left:45%
+}
+
+.fave-avatar{
+  display:flex;
+  margin-left: 45%;
 }
 
 .avatar {
- max-width: 9vw;
- max-height:9vh ;
+ max-width: 15vw;
+ max-height:15vh ;
  border-radius: 50%; 
  border: 2px solid rgb(0, 179, 255);
  margin-bottom:10px;
- margin-top:10px;   
- display: flex; 
- align-items: center;
- justify-content: center;
-/* padding: 0 7px 0 0;
-position: relative; */
-}
+ margin-top:5px;   
+
+ }
 
 
-@media screen and (max-width:1200px){
-  .avatar{
-    width:40%;
-  }
-}
-
-@media screen and (max-width:600px){
-  .avatar{
-    width:90%;
-  }
-}
+ 
