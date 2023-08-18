@@ -2,42 +2,62 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const axios = require("axios");
-const port = 3001;
+const port = 3005;
 
-app.use("/src", express("src"));
-console.log("Hello there!");
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/src/components"));
+  console.log("I'm here")
+  // res.send(File(path.join(__dirname + "server")))
 });
 
-app.get("/api/card", function (req, res) {
-  const response = {
-    userName: "Jane Doe",
-    userHandle: "@jane_doe",
-    date: " August 6, 2023",
-  };
-  res.send(response);
+app.get("/api/statuses", function (req, res) {
+  // get data from twitter
+  axios.get("https://api.twitter.com/1.1/search/tweets.json?")
+  .then( function( response){
+    res.send(response.data)
+  })
+  .catch(function (error){
+
+    res.send("Something went wrong!");
+  })
+ 
 });
 
-/*  axios
-    .get("https://api.twitter.com/1.1/search/tweets.json?q=src")
-    .then(function (response) {
-      
-      res.send(response.data);
-    })
-    .catch(function (error) {
-     
-      console.log(error);
-      res.sendStatus(500);
-    }); */
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-// const user = {
-//   userName: "Jane Doe",
-//   userHandle: "@jane_doe",
-//   date: " August 6, 2023",
-// };
+
+ const statuses = [
+      {
+          "created_at": "Fri Aug 18 04:16:07 +0000 2023",
+          "id": 1692389889126637843,
+          "id_str": "1692389889126637843",
+          "text": "RT @wman132: Unveiling the Controversy: Twitter faces a $350,000 fine as Elon Musk denies Jack Smith access to President Trump account.\n\nDo…",
+          "truncated": false,
+          "entities": {
+              "hashtags": [],
+              "symbols": [],
+              "user_mentions": [
+                  {
+                      "screen_name": "wman132",
+                      "name": "White Man",
+                      "id": 1329663627838644224,
+                      "id_str": "1329663627838644224",
+                      "indices": [
+                          3,
+                          11
+                      ]
+                  }
+              ],
+              "urls": []
+            }}]
+
+
+            // const response = {
+  //   userName: "Jane Doe",
+  //   userHandle: "@jane_doe",
+  //   date: " August 6, 2023",
+  // };
+  // console.log("I'm here") 

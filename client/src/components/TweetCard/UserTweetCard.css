@@ -1,18 +1,16 @@
 .container{
   background-color: white;
-  max-width: 650px ;
+  max-width: 500px ;
   max-height:375px ;
  color: rgb(162, 161, 161); 
-  margin-top:10%;
-  margin-left:10%;
+  margin:10%;
   font-family:Arial, Helvetica, sans-serif;
 }
  
 .card-header{
- 
   position: relative;
   display:inline-table;
-  width: 87%;
+  width: 85%;
   height: auto;
   margin: 50px;
  
@@ -31,12 +29,12 @@
     font-size: large;
    }
 
-   .userName{
+   .name{
     font-weight: 600;
     color:rgb(47, 46, 46);
    }
 
-   .userHandle{
+   .handle{
     margin-left:12px;
     font-weight: 500;
    }

@@ -1,36 +1,37 @@
 import React from "react";
 import { useState } from "react";
-
 import "./UserTweetCard.css";
 
-// import UserTimeDate from "./UserTimeDate";
-
-function TweetCard({ userName, userHandle, content, date }) {
+function UserTweetCard() {
   const [retweetCounter, setRetweetCounter] = useState(0);
   const [likesCounter, setLikesCounter] = useState(0);
   // const [randomUser, setRandomUser] =useState('');
+
+  const user = {
+    id: 123456789,
+    name: "Jane Doe",
+    date: "Aug, 10/2023",
+    content:
+      "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
+    handle: "@jane_doe",
+  };
 
   return (
     <div className="container">
       <div className="card border-info mb-3">
         <div className="card-header">
           <a href="./RandomTweet">
-            <img src="./images/icons8-user-avatar-50 (1).png" alt="" />
+            <img src="./images/icons8-user-avatar-50.png" alt="" />
           </a>
+
           <ul className="user">
-            
-            <li className="userName">{userName}</li>
-            <li className="userHandle">{userHandle}</li>
-            <li className="date" value="date.now()">
-              {date}
-            </li>
+            <li className="name">{user.name}</li>
+            <li className="handle">{user.handle}</li>
+            <li className="handle">{user.date}</li>
           </ul>
           <div className="card-body">
             <span className="card-text" type="text" valu="text">
-              {/* {content} */}
-               Some quick example text to build on the card title and make up the
-              bulk of the card's content. Some quick example text to build on
-              the card title and make up the bulk of the card's content. 
+              {user.content}
             </span>
           </div>
           <div className="card-footer">
@@ -65,4 +66,4 @@ function TweetCard({ userName, userHandle, content, date }) {
   );
 }
 
-export default TweetCard;
+export default UserTweetCard;

@@ -1,8 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import "./RandomTweet.css";
+import {useNavigate } from "react-router-dom";
+
 
 function RandomNavBar() {
+
+   let navigate =  useNavigate();
+
   const [search, setSearch] = useState("");
 
   return (
@@ -23,7 +28,9 @@ function RandomNavBar() {
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Tweet..."
         ></input>
-        <button className="submit" type="submit">
+        <button className="submit" type="submit"
+           onClick={()=>{navigate("/UserTweetCard")}}
+        >
           Search
         </button>
       </form>
