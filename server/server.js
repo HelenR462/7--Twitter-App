@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 app.get("/api", function (req, res) {
   // get data from twitter
-   axios.get("/")
+   axios.get("/https://api.twitter.com/1.1/search/tweets.json")
   .then( function( response){
 console.log(data)
     res.send(response.data)
