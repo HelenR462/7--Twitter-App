@@ -12,7 +12,7 @@ function UserTweetCard() {
     name: "Jane Doe",
     date: "Aug, 10/2023",
     content:
-      "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius enim ut neque porta tristique. Nunc imperdiet bibendum aliquet. ",
     handle: "@jane_doe",
   };
 
@@ -29,6 +29,7 @@ function UserTweetCard() {
             <li className="handle">{user.handle}</li>
             <li className="handle">{user.date}</li>
           </ul>
+
           <div className="card-body">
             <span className="card-text" type="text" valu="text">
               {user.content}

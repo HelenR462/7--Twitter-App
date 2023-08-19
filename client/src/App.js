@@ -11,22 +11,23 @@ import NoPage from "./components/NoPage";
 
 function App() {
   const [data, setData] = useState({});
-
- fetch("api/statuses")
-      .then((res) => res.json())
-      .then(function (data) {
-       
-       console.log(data)
-        // setData(data);
-      });
  
-
+ 
+  fetch('http://localhost:3000')
+    .then((data) => {
+      return data.json();
+    })
+    .then(objectData =>{
+     console.log(objectData)
+     setData(data)
+    })
+ 
   return (
     <div>
       <BrowserRouter>
         <div className="app">
           <Routes>
-            <Route path="/" element={<HomePage data={data} />}></Route>
+            <Route path="/" element={<HomePage  />}></Route>
             <Route path="/RandomTweet" element={<RandomTweet />}></Route>
             <Route path="/UserTweet" element={<UserTweet />}></Route>
             <Route path="/TweetCard" element={<TweetCard />}></Route>

@@ -29,7 +29,7 @@ function RandomNavBar() {
           placeholder="Tweet..."
         ></input>
         <button className="submit" type="submit"
-           onClick={()=>{navigate("/UserTweetCard")}}
+           onSubmit={()=>{navigate("/UserTweetCard")}}
         >
           Search
         </button>

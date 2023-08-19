@@ -2,25 +2,28 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const axios = require("axios");
-const port = 3005;
+const port = 3001;
 
+
+app.use("/src", express.src('src'))
 
 app.get("/", (req, res) => {
   console.log("I'm here")
-  // res.send(File(path.join(__dirname + "server")))
+    res.send(File(path.join(__dirname +  '/src/components')))
 });
 
-app.get("/api/statuses", function (req, res) {
+app.get("/api", function (req, res) {
   // get data from twitter
-  axios.get("https://api.twitter.com/1.1/search/tweets.json?")
+   axios.get("/")
   .then( function( response){
+console.log(data)
     res.send(response.data)
   })
   .catch(function (error){
 
     res.send("Something went wrong!");
   })
- 
+  
 });
 
 

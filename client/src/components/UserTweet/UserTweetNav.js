@@ -2,10 +2,11 @@ import React from "react";
 import "./UserTweet.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserTweet from "./UserTweet";
+
 
 function UserTweetNav() {
   const [search, setSearch] = useState("");
+
 
   let navigate = useNavigate();
 
@@ -34,16 +35,16 @@ function UserTweetNav() {
             ></input>
             <button
               className="tweet-submit"
-              onClick={() => {
+              onSubmit={() => {
                 navigate("/UserTweetCard");
               }}
               type="submit"
+
+             
             >
               Search
             </button>
-
-            <UserTweet/>
-          </div>
+            </div>
         
         </div>
       </section>

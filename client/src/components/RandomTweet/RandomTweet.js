@@ -5,6 +5,7 @@ import "./RandomTweet.css";
 // import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 function RandomTweet() {
   let navigate = useNavigate();
 
@@ -67,6 +68,7 @@ function RandomTweet() {
             <p className="avatar-userName">The Weather Network</p>
           </a>
         </div>
+      
       </div>
     </div>
   );
