@@ -4,7 +4,7 @@ import "./RandomTweet.css";
 import {useNavigate } from "react-router-dom";
 
 
-function RandomNavBar() {
+function RandomNavBar({fetchTweets}) {
 
    let navigate =  useNavigate();
 
@@ -20,7 +20,12 @@ function RandomNavBar() {
           <a href="/userTweet">Tweet</a>
         </button>
       </div>
-      <form className="search-form">
+      <form 
+      className="search-form" 
+      onSubmit={(e)=> {navigate("/UserTweetCard")
+          e.preventDefault();
+       
+        }} >
         <input
           className="search-box"
           type="text"
@@ -29,7 +34,7 @@ function RandomNavBar() {
           placeholder="Tweet..."
         ></input>
         <button className="submit" type="submit"
-           onSubmit={()=>{navigate("/UserTweetCard")}}
+         
         >
           Search
         </button>

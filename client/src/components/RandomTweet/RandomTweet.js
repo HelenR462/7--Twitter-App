@@ -1,8 +1,7 @@
 import React from "react";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import "./RandomTweet.css";
-
-// import { useState } from "react";
+import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
 import { useNavigate } from "react-router-dom";
 
 
@@ -15,7 +14,7 @@ function RandomTweet() {
       <div className="avatar-container">
         <div className="fave-avatar">
           <a
-            href="./TweetCard"
+            href=""
             onClick={() => {
               navigate("/RandomTweet");
             }}
@@ -24,7 +23,7 @@ function RandomTweet() {
             <p className="avatar-userName">Elon Musk</p>
           </a>
           <a
-            href="./TweetCard/"
+            href=""
             onClick={() => {
               navigate("/RandomTweet");
             }}
@@ -37,7 +36,7 @@ function RandomTweet() {
             <p className="avatar-userName">Francine Rivers</p>
           </a>
           <a
-            href="./TweetCard/"
+            href=""
             onClick={() => {
               navigate("/RandomTweet");
             }}
@@ -46,7 +45,7 @@ function RandomTweet() {
             <p className="avatar-userName">Julia Roberts</p>
           </a>
           <a
-            href="./TweetCard/"
+            href=""
             onClick={() => {
               navigate("");
             }}
@@ -55,7 +54,7 @@ function RandomTweet() {
             <p className="avatar-userName">Quizscape</p>
           </a>
           <a
-            href="./TweetCard/"
+            href=""
             onClick={() => {
               navigate("/RandomTweet");
             }}
@@ -69,6 +68,12 @@ function RandomTweet() {
           </a>
         </div>
       
+      </div>
+      <div className="random_fave">
+        
+    
+          <UserTweetCard  />
+
       </div>
     </div>
   );

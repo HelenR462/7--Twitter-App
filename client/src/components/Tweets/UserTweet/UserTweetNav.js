@@ -2,17 +2,15 @@ import React from "react";
 import "./UserTweet.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import UserTweetCard from "../TweetCard/UserTweetCard";
 
-
-function UserTweetNav() {
+function UserTweetNav({fetchTweets}) {
   const [search, setSearch] = useState("");
-
 
   let navigate = useNavigate();
 
   return (
     <div>
-       
       <section className="tweet-nav">
         <div className="tweet-btn">
           <button className="tweet-primary">
@@ -27,7 +25,14 @@ function UserTweetNav() {
       <section className="tweet-body">
         <div className="tweet-container">
           <div className="tweet-input">
+         <form  
+         className="search-form"
+         onSubmit={(e)=> {navigate("/UserTweetCard")
+          e.preventDefault();
+         
+        }}>
             <input
+             className="search-box"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -35,21 +40,17 @@ function UserTweetNav() {
             ></input>
             <button
               className="tweet-submit"
-              onSubmit={() => {
-                navigate("/UserTweetCard");
-              }}
               type="submit"
-
-             
+                           
             >
               Search
             </button>
-            </div>
-        
+            </form>
+
+            <UserTweetCard/>
+          </div>
         </div>
       </section>
-
-   
     </div>
   );
 }
