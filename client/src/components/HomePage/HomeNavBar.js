@@ -14,7 +14,7 @@ let navigate =  useNavigate();
         <Link className="btn btn-outline-primary" to="/">
           Home
         </Link>
-        <Link className="btn btn-outline" to="/userTweet">
+        <Link className="btn btn-outline" to="/UserTweet">
           Tweet
         </Link>
         <Link className="btn-lg" to="/randomTweet">
@@ -27,7 +27,7 @@ let navigate =  useNavigate();
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Tweet..."
+          placeholder="Enter user name or content..."
         ></input>
         <button className="submit" type="submit"
          onSubmit={()=>{navigate("/UserTweetCard")}}

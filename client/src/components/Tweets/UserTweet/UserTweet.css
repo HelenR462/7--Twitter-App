@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(5, 5, 5); 
+  background-color:black; 
 }
 
 
@@ -38,21 +38,22 @@ body{
 
   
 .tweet-container{
- width: 100%;
+ width: 80%;
  display:flex;
  align-items: center;
  justify-content: center;
  text-align:center ; 
-/* border-radius: 10%; */
+ margin-left: 270px;
 } 
 
  .tweet-input{
-  display:block;
+  display:inline-block;
   margin-top: 20%;
   align-items: center;
   justify-content: center; 
   border-color: 1px solid rgb(0, 179, 255);
   border-radius:5px 0px 0px 5px;
+  
 }  
  
 .tweet-submit{
@@ -61,10 +62,11 @@ body{
   font-size: large;
   background-color: rgb(0, 179, 255);
   border:.5px solid rgb(0, 179, 255);
-  display:inline-block;  
+  /* display:inline-block;   */
   border-radius: 0 5px 5px 0;
   margin-top: 40px;
-  margin-left:367px;
-  font: white;
+  margin-left:-30px;
+  color: white;
+  z-index: 5;
 }
 

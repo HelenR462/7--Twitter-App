@@ -2,9 +2,9 @@ import React from "react";
 import "./UserTweet.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import UserTweetCard from "../TweetCard/UserTweetCard";
+// import UserTweetCard from "../TweetCard/UserTweetCard";
 
-function UserTweetNav({fetchTweets}) {
+function UserTweetNav() {
   const [search, setSearch] = useState("");
 
   let navigate = useNavigate();
@@ -27,7 +27,7 @@ function UserTweetNav({fetchTweets}) {
           <div className="tweet-input">
          <form  
          className="search-form"
-         onSubmit={(e)=> {navigate("/UserTweetCard")
+         onSubmit={(e)=> {navigate("/RandomTweet")
           e.preventDefault();
          
         }}>
@@ -36,7 +36,7 @@ function UserTweetNav({fetchTweets}) {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Tweet..."
+              placeholder="Enter user name or content..."
             ></input>
             <button
               className="tweet-submit"
@@ -47,7 +47,7 @@ function UserTweetNav({fetchTweets}) {
             </button>
             </form>
 
-            <UserTweetCard/>
+            {/* <UserTweetCard /> */}
           </div>
         </div>
       </section>

@@ -1,4 +1,6 @@
 import React from "react";
+import {useState} from "react"
+// import axios from "axios";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import "./RandomTweet.css";
 import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
@@ -6,7 +8,23 @@ import { useNavigate } from "react-router-dom";
 
 
 function RandomTweet() {
+  const [setUser] = useState()
   let navigate = useNavigate();
+
+  // async function getUser() {
+  //   try {
+  //     const response = await axios.get('/id');
+  //     console.log(response);
+  //     setUser(response.data.id)
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // } 
+
+  // useEffect(()=>{
+  //   getUser()
+  // }, [])
+
 
   return (
     <div>
@@ -15,11 +33,9 @@ function RandomTweet() {
         <div className="fave-avatar">
           <a
             href=""
-            onClick={() => {
-              navigate("/RandomTweet");
-            }}
+            onClick={setUser}
           >
-            <img className="avatar" src="../images/Elon_Musk.jpg" alt="" />
+            <img className="avatar" id="1698858685618143439" src="../images/Elon_Musk.jpg" alt="" />
             <p className="avatar-userName">Elon Musk</p>
           </a>
           <a

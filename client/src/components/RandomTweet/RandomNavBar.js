@@ -22,7 +22,7 @@ function RandomNavBar({fetchTweets}) {
       </div>
       <form 
       className="search-form" 
-      onSubmit={(e)=> {navigate("/UserTweetCard")
+      onSubmit={(e)=> {navigate("/UserTweet")
           e.preventDefault();
        
         }} >
@@ -31,7 +31,7 @@ function RandomNavBar({fetchTweets}) {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Tweet..."
+          placeholder="Enter user name or content..."
         ></input>
         <button className="submit" type="submit"
          

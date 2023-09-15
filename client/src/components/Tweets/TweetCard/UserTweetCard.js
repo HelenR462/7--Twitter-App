@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import "./UserTweetCard.css";
-import UserTweet from "../UserTweet/UserTweet";
+// import UserTweet from "../UserTweet/UserTweet";
 
 function UserTweetCard() {
    
- const [user, setUser] = useState([
+ const [user] = useState([
   {
     name:"",
     handle:"",
@@ -18,7 +18,10 @@ function UserTweetCard() {
 
 
   return (
+
+  
     <div className="container">
+        {/* <UserTweet/> */}
       <a href="./RandomTweet">
         <img src="./images/icons8-user-avatar-50.png" alt="" />
       </a>
