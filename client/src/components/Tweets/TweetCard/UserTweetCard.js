@@ -1,11 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios'
 import "./UserTweetCard.css";
 // import UserTweet from "../UserTweet/UserTweet";
 
 function UserTweetCard() {
-   
- const [user] = useState([
+//  const [toggle, setToggle] = useState(true)
+  const [user, setUser] = useState([
   {
     name:"",
     handle:"",
@@ -16,15 +17,33 @@ function UserTweetCard() {
   const [likesCounter, setLikesCounter] = useState(0);
   const [retweetCounter, setRetweetCounter] = useState(0);
 
+  
+
+  async function getUser() {
+      const response = await axios.get('http://localhost:3000')
+      .then(response.json())
+      // .then(json() =>{
+         setUser(user)
+      // })
+       
+     
+    }
+  
+  useEffect(()=>{
+    getUser()
+  }, [])
+
 
   return (
 
   
-    <div className="container">
+    <div className="container"
+   
+    >
         {/* <UserTweet/> */}
-      <a href="./RandomTweet">
-        <img src="./images/icons8-user-avatar-50.png" alt="" />
-      </a>
+      <div>
+        <img className="card-avatar" src="./images/icons8-user-avatar-50.png" alt="" />
+      </div>
       <form className="card border-info mb-3">
         <div className="card-header">
          
@@ -37,12 +56,12 @@ function UserTweetCard() {
           <div className="card-body">
             <p>
               {user.content}
-              {/* This is where the tweet message goes. */}
+             
               </p>
           </div>
           <div className="card-footer">
             <div className="icons">
-              <a href="">
+              <div>
                 <img
                   className="icon-retweet"
                   onClick={() => {
@@ -52,8 +71,8 @@ function UserTweetCard() {
                   alt="retweet"
                 />
                 <div className="counts">{retweetCounter}</div>
-              </a>
-              <a href="">
+              </div>
+              <div>
                 <img
                   className="icon-heart"
                   onClick={() => {
@@ -63,7 +82,7 @@ function UserTweetCard() {
                   alt="heart"
                 />
                 <div className="counts">{likesCounter}</div>
-              </a>
+              </div>
             </div>
           </div>
         </div>

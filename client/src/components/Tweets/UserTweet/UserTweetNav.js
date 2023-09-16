@@ -1,13 +1,14 @@
 import React from "react";
 import "./UserTweet.css";
+import axios from "axios"
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import UserTweetCard from "../TweetCard/UserTweetCard";
 
 function UserTweetNav() {
   const [search, setSearch] = useState("");
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   return (
     <div>
@@ -27,9 +28,11 @@ function UserTweetNav() {
           <div className="tweet-input">
          <form  
          className="search-form"
-         onSubmit={(e)=> {navigate("/RandomTweet")
+         onSubmit={(e)=> {axios.get("/UserTweetCard").then((res) => res.json()).then(response => {
+          setSearch(e.target.value)
+         });
           e.preventDefault();
-         
+       
         }}>
             <input
              className="search-box"
@@ -47,7 +50,7 @@ function UserTweetNav() {
             </button>
             </form>
 
-            {/* <UserTweetCard /> */}
+             {/* <UserTweetCard />  */}
           </div>
         </div>
       </section>

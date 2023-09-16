@@ -13,7 +13,7 @@ function HomeMain() {
         </h2>
       </div>
       <img
-        className="container"
+        className="img-container"
         src="../images/ilgmyzin-8ays4w9MDVk-unsplash.jpg"
         alt="twitter"
       ></img>

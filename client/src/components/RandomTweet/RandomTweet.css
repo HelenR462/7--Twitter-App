@@ -2,35 +2,36 @@
  background-color:rgb(5, 5, 5);
  display:flex;
  flex-direction:row;
- width:60%;
- height: 500px;
+ width:30%;
+ height: 539px;
  align-items: center;
 
 }
 
 p{
   font-size: medium;
-  margin-left:45%
+  margin-left:45%;
+  color: wheat;
 }
 
 .fave-avatar{
   display:flex;
-  margin-left: 45%;
+  margin-left: 75%;
 }
 
 .avatar {
- max-width: 15vw;
- max-height:15vh ;
+ width: 10vw;
+ height:20vh ;
  border-radius: 50%; 
  border: 2px solid rgb(0, 179, 255);
  margin-bottom:10px;
  margin-top:5px;   
- margin-left: 20px;
+ margin-left: 10px;
 
  }
 
 .random_fave{
   margin-left:430px;
-  margin-top:-160px;
+  margin-top:-140px;
 }
  

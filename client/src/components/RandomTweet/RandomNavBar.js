@@ -1,14 +1,14 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 import "./RandomTweet.css";
-import {useNavigate } from "react-router-dom";
+// import {useNavigate } from "react-router-dom";
 
 
-function RandomNavBar({fetchTweets}) {
+function RandomNavBar() {
 
-   let navigate =  useNavigate();
+  //  let navigate =  useNavigate();
 
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
 
   return (
     <nav>
@@ -20,7 +20,7 @@ function RandomNavBar({fetchTweets}) {
           <a href="/userTweet">Tweet</a>
         </button>
       </div>
-      <form 
+      {/* <form 
       className="search-form" 
       onSubmit={(e)=> {navigate("/UserTweet")
           e.preventDefault();
@@ -34,11 +34,11 @@ function RandomNavBar({fetchTweets}) {
           placeholder="Enter user name or content..."
         ></input>
         <button className="submit" type="submit"
-         
+        //  onClick={()=> setToggle(!toggle)}
         >
           Search
         </button>
-      </form>
+      </form> */}
     </nav>
   );
 }

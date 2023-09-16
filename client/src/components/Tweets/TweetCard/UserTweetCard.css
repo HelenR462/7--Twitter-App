@@ -16,7 +16,9 @@
   margin-top: 30px;
  
   }
-a img{
+ .card-avatar{
+  /* width:10vh;
+  height:10vh; */
     margin-top:25px; 
     margin-left:25px; 
    }
@@ -34,12 +36,13 @@ a img{
     margin-bottom:-15px;
   }
     
-.icons{
+.card-footer .icons{
     display:flex;
     align-items: center;
     margin-left: 50px;
     justify-content: space-between; 
     
+   
 }  
 
 .counts{

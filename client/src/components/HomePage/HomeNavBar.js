@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import {useNavigate, Link } from "react-router-dom";
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 
 function HomeNavBar() {
-  const [search, setSearch] = useState("");
-
-let navigate =  useNavigate();
+ 
 
   return (
     <nav>
@@ -21,20 +18,7 @@ let navigate =  useNavigate();
           Random Tweet
         </Link>
       </div>
-      <form className="search-form">
-        <input
-          className="search-box"
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Enter user name or content..."
-        ></input>
-        <button className="submit" type="submit"
-         onSubmit={()=>{navigate("/UserTweetCard")}}
-        >
-          Search
-        </button>
-      </form>
+   
     </nav>
   );
 }

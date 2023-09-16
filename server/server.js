@@ -2,58 +2,50 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const axios = require("axios");
+const { default: UserTweetCard } = require("../client/src/components/Tweets/TweetCard/UserTweetCard");
+// const { default: UserTweetCard } = require("../client/src/components/Tweets/TweetCard/UserTweetCard");
 const port = 3001;
-
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  
-   res.send(express.response)
-  })
+// app.get("/", (req, res) => {
+//   res.send(data);
+// });
 
-app.post("/", (req, res) => {
-  const user = req.body;
-  users.push(req.body);
-  // res.send("post reached");
+// app.post("/", (req, res) => {
+//   // const user = req.body;
+//   // users.push(req.body);
+//    res.send("post reached");
 
-  res.send(`User with the name ${user.userName} is added to the database!`);
-});
-
-
+//   // res.send(`User with the name ${user.userName} is added to the database!`);
+// });
 
 // app.get("/id", (req, res) => {
-//   // res.send("I hope Im getting onto something")
-//   const user= req.body
-//   user.push(req.body)
-//   res.send(`This is the ${user.id} `)
+
+//   res.send("This is the a test")
 // })
 
 app.get("/", (req, res) => {
   res.send("Hello from Homepage");
-})
+});
 
- app.get("/RandomTweet", (req, res) => {
-  
+app.get("/RandomTweet", (req, res) => {
   const randomTweet = {
-    userName: "", 
-     id: "",
-    userHandle: "", 
-    date:"", 
-    text:""
+    userName: "andy",
+    id: "",
+    userHandle: "",
+    date: "",
+    text: "",
   };
- 
-  res.send(randomTweet)
-})
 
-app.get("/Tweet", (req, res) => {
-  res.send("Hello from Tweetpage");
-})
+  res.send(randomTweet);
+});
 
+app.get("/UserTweetCard", (req, res) => {
 
-// Search by user name and content
-// RandomTweet 7-10 days tweet
-// 
+console.log(user)
+  res.send(UserTweetCard);
+});
 
 
 app.listen(port, () => {
