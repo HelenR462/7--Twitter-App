@@ -1,14 +1,10 @@
 import React from "react";
 import "./UserTweet.css";
-import axios from "axios"
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import UserTweetCard from "../TweetCard/UserTweetCard";
 
 function UserTweetNav() {
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
+ 
 
-  // let navigate = useNavigate();
 
   return (
     <div>
@@ -28,17 +24,16 @@ function UserTweetNav() {
           <div className="tweet-input">
          <form  
          className="search-form"
-         onSubmit={(e)=> {axios.get("/UserTweetCard").then((res) => res.json()).then(response => {
-          setSearch(e.target.value)
-         });
-          e.preventDefault();
-       
-        }}>
-            <input
+        //  onSubmit={(e)=> 
+        //  (e.target.value)
+                
+        //  }
+        >
+           <input
              className="search-box"
               type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              // onChange={(e) => (e.target.value)
+              // }
               placeholder="Enter user name or content..."
             ></input>
             <button

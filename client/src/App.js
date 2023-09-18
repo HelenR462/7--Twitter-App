@@ -1,6 +1,6 @@
 import React from "react";
 //  import axios from "axios"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomeMain";
@@ -10,23 +10,26 @@ import UserTweetCard from "./components/Tweets/TweetCard/UserTweetCard";
 import NoPage from "./components/NoPage";
 
 function App() {
-  
-  const [tweets, setTweets] =useState([]);
+  const [randomUser] = useState([]);
 
-   const getTweets = async () => {
-     await fetch("http://localhost:3000")
-      .then(response=>
-        response.json())
-        .then(data=>{
-          setTweets(data)
-        })
-       
-      }
+ function getRandomUser(){
+    fetch("/api/RandomTweet")
+      .then((response) => response.json())
+      .then(function (data) {
+       console.log(data);
+        // setRandomUser(data)
 
-  useEffect(()=>{
-    getTweets();
-  
-  }, [])
+//        const properties = Object.keys(data)
+// console.log(properties)
+    
+      });
+   };
+   getRandomUser();
+   
+  // useEffect(() => {
+    
+  //        getRandomUser();
+  // }, []);
 
   return (
     <div>
@@ -34,11 +37,12 @@ function App() {
         <div className="app">
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/RandomTweet" element={ <RandomTweet 
-                tweets={tweets}
-             />}></Route>
-            <Route path="/UserTweet" element={<UserTweet/>}></Route>
-            <Route path="/UserTweetCard" element={<UserTweetCard />}></Route> 
+            <Route
+              path="/RandomTweet"
+              element={<RandomTweet randomUser={randomUser} />}
+            ></Route>
+            <Route path="/UserTweet" element={<UserTweet />}></Route>
+            <Route path="/UserTweetCard" element={<UserTweetCard />}></Route>
             <Route path="*" element={<NoPage />} />
           </Routes>
         </div>
@@ -48,4 +52,3 @@ function App() {
 }
 
 export default App;
-

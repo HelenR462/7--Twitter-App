@@ -8,20 +8,20 @@
 
 }
 
-p{
-  font-size: medium;
-  margin-left:45%;
-  color: wheat;
-}
-
 .fave-avatar{
   display:flex;
-  margin-left: 75%;
+  margin-left: 100%;
+  
+}
+
+.avatar-userName{
+  color:#faf6f9;
+  margin-left: 35px;
 }
 
 .avatar {
- width: 10vw;
- height:20vh ;
+ width: 7vw;
+ height:14vh ;
  border-radius: 50%; 
  border: 2px solid rgb(0, 179, 255);
  margin-bottom:10px;
@@ -30,8 +30,8 @@ p{
 
  }
 
+ /* tweet card */
 .random_fave{
-  margin-left:430px;
-  margin-top:-140px;
+  margin-left:33%;
+  margin-top:-190px;
 }
- 

@@ -1,63 +1,44 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from 'axios'
+import { useState } from "react";
+// import axios from "axios";
 import "./UserTweetCard.css";
-// import UserTweet from "../UserTweet/UserTweet";
 
-function UserTweetCard() {
-//  const [toggle, setToggle] = useState(true)
-  const [user, setUser] = useState([
-  {
-    name:"",
-    handle:"",
-    content:"",
-    date:""
-  }
- ])
+function UserTweetCard(props) {
+  //  const [toggle, setToggle] = useState(true)
+ 
   const [likesCounter, setLikesCounter] = useState(0);
   const [retweetCounter, setRetweetCounter] = useState(0);
 
-  
+  // async function getUser() {
+  //   const response = await axios
+  //     .get("http://localhost:3000")
+  //     .then(response.json());
+    
+  // }
 
-  async function getUser() {
-      const response = await axios.get('http://localhost:3000')
-      .then(response.json())
-      // .then(json() =>{
-         setUser(user)
-      // })
-       
-     
-    }
-  
-  useEffect(()=>{
-    getUser()
-  }, [])
-
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
 
   return (
-
-  
-    <div className="container"
-   
-    >
-        {/* <UserTweet/> */}
+    <div className="container">
       <div>
-        <img className="card-avatar" src="./images/icons8-user-avatar-50.png" alt="" />
+        <img
+          className="card-avatar"
+          src="./images/icons8-user-avatar-50.png"
+          alt=""
+        />
       </div>
       <form className="card border-info mb-3">
         <div className="card-header">
-         
           <div className="card-title">
-              <h3>{user.name}</h3>
-              <h4>{user.handle}</h4>
-              <h4>{user.date}</h4>
-            </div>
-         
+            <h4>{props.name}</h4>
+            <h5>{props.handle}</h5>
+            <h5>{props.date}</h5>
+          </div>
+
           <div className="card-body">
-            <p>
-              {user.content}
-             
-              </p>
+            <p>{props.content}</p>
           </div>
           <div className="card-footer">
             <div className="icons">
