@@ -2,14 +2,14 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const axios = require("axios");
-// const { default: UserTweet } = require("../client/src/components/Tweets/UserTweet/UserTweet");
+
 const port = 3001;
 
-app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  res.send("Hello from Homepage");
+  //  res.sendFile(path.join(__dirname + "./components/HomePage"));
+  res.send("Hello from HomePage")
 });
 
 app.get("/api/RandomTweet", (req, res) => {
@@ -17,10 +17,12 @@ app.get("/api/RandomTweet", (req, res) => {
   res.send(randomTweet);
 });
 
-app.get("/UserTweet", (res,req)=>{
-console.log("Hello!")
-  res.send("Hello")
+app.get("/api/randomTweet/id:", (res,req)=>{
+
+  res.send(req.id)
 })
+
+app.use(express.static('./public'));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -64,3 +66,15 @@ const randomTweet = [
     date: "Aug.26/2023",
   },
 ]
+
+
+// const randomUser = [
+//   { name: "Elon Musk", img: "../images/Elon_Musk.jpg" },
+//   { name: "Francine Rivers", img: "../images/francine_rivers.jpg" },
+//   { name: "Julia Roberts", img: "../images/julia_roberts.jpg" },
+//   { name: "Quizz Scape", img: "../images/Quizscape.jpg" },
+//   { name: "The Weather Network", img: "../images/The_Weather_Network.png" },
+// ];
+
+// console.log(randomUser)
+  

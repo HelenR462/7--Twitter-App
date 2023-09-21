@@ -1,5 +1,5 @@
 .avatar-container{
- background-color:rgb(5, 5, 5);
+ /* background-color:rgb(5, 5, 5); */
  display:flex;
  flex-direction:row;
  width:30%;
@@ -10,7 +10,7 @@
 
 .fave-avatar{
   display:flex;
-  margin-left: 100%;
+  margin-left:105%; 
   
 }
 
@@ -20,18 +20,22 @@
 }
 
 .avatar {
- width: 7vw;
- height:14vh ;
+ width: 100px;
+ height:100px ;
  border-radius: 50%; 
  border: 2px solid rgb(0, 179, 255);
  margin-bottom:10px;
  margin-top:5px;   
- margin-left: 10px;
+ margin-left: 15px;
 
+ }
+
+ .avatar:hover{
+  background-color: rgb(96, 98, 98);
+ 
  }
 
  /* tweet card */
 .random_fave{
-  margin-left:33%;
-  margin-top:-190px;
+   margin-top:-190px;
 }

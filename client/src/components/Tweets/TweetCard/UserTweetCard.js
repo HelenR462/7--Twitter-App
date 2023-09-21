@@ -1,24 +1,12 @@
 import React from "react";
 import { useState } from "react";
-// import axios from "axios";
+
 import "./UserTweetCard.css";
 
-function UserTweetCard(props) {
-  //  const [toggle, setToggle] = useState(true)
- 
+function UserTweetCard( props) {
+  
   const [likesCounter, setLikesCounter] = useState(0);
   const [retweetCounter, setRetweetCounter] = useState(0);
-
-  // async function getUser() {
-  //   const response = await axios
-  //     .get("http://localhost:3000")
-  //     .then(response.json());
-    
-  // }
-
-  // useEffect(() => {
-  //   getUser();
-  // }, []);
 
   return (
     <div className="container">
@@ -36,11 +24,10 @@ function UserTweetCard(props) {
             <h5>{props.handle}</h5>
             <h5>{props.date}</h5>
           </div>
-
           <div className="card-body">
             <p>{props.content}</p>
           </div>
-          <div className="card-footer">
+         <div className="card-footer">
             <div className="icons">
               <div>
                 <img

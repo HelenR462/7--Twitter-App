@@ -1,9 +1,11 @@
 import React from "react";
+import {useState} from "react";
+import axios from "axios";
 import "./UserTweet.css";
 
 function UserTweetNav() {
-  // const [search, setSearch] = useState("");
- 
+  const [searchInput, setSearchInput] = useState("");
+ console.log(searchInput)
 
 
   return (
@@ -24,22 +26,22 @@ function UserTweetNav() {
           <div className="tweet-input">
          <form  
          className="search-form"
-        //  onSubmit={(e)=> 
-        //  (e.target.value)
-                
-        //  }
+     
         >
            <input
              className="search-box"
               type="text"
-              // onChange={(e) => (e.target.value)
-              // }
+              value={searchInput}
+              onChange={(e) => {setSearchInput(e.target.index)
+              }}
               placeholder="Enter user name or content..."
             ></input>
             <button
               className="tweet-submit"
               type="submit"
-                           
+             onSubmit={(e)=> 
+              axios.get("/api/randomUser").then((res) => console.log(res.data))
+                }            
             >
               Search
             </button>
