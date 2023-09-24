@@ -1,12 +1,24 @@
 import React from "react";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import "./UserTweetCard.css";
 
-function UserTweetCard( props) {
-  
+function UserTweetCard() {
+  const [users, setUsers] = useState([]);
   const [likesCounter, setLikesCounter] = useState(0);
   const [retweetCounter, setRetweetCounter] = useState(0);
+
+  const getFaveUser = async () => {
+    const response = await fetch("/api");
+
+    const data = await response.json().then((users) => setUsers(users));
+    // .catch(err) =>{
+    //   console.log(err)
+    // }
+  };
+
+  useEffect(() => {
+    getFaveUser();
+  }, []);
 
   return (
     <div className="container">
@@ -20,14 +32,23 @@ function UserTweetCard( props) {
       <form className="card border-info mb-3">
         <div className="card-header">
           <div className="card-title">
-            <h4>{props.name}</h4>
-            <h5>{props.handle}</h5>
-            <h5>{props.date}</h5>
+            {/* {users.forEach(function(users,index){
+              setUsers(users, index)
+            })} */}
+           
+            {users.slice(0, 1).map((user, value) => {
+              return (
+                <div key={value}>
+                  <h4>{user.name}</h4>
+                  <h5>{user.handle}</h5>
+                  <h5>{user.date}</h5>
+                  <p className="card-body">{user.content}</p>
+                </div>
+              );
+            })}
           </div>
-          <div className="card-body">
-            <p>{props.content}</p>
-          </div>
-         <div className="card-footer">
+
+          <div className="card-footer">
             <div className="icons">
               <div>
                 <img

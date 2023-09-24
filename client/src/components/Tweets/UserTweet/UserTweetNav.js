@@ -1,12 +1,19 @@
 import React from "react";
-import {useState} from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import "./UserTweet.css";
 
-function UserTweetNav() {
-  const [searchInput, setSearchInput] = useState("");
- console.log(searchInput)
+function UserTweetNav({ users }) {
+  const [searchInput, setSearchInput] = useState([]);
 
+  const getTweet = async () => {
+    const response = await fetch("/api/");
+    response.json();
+    //  setSearchInput(response.data)
+  };
+
+  useEffect(() => {
+    getTweet();
+  }, []);
 
   return (
     <div>
@@ -24,30 +31,24 @@ function UserTweetNav() {
       <section className="tweet-body">
         <div className="tweet-container">
           <div className="tweet-input">
-         <form  
-         className="search-form"
-     
-        >
-           <input
-             className="search-box"
-              type="text"
-              value={searchInput}
-              onChange={(e) => {setSearchInput(e.target.index)
-              }}
-              placeholder="Enter user name or content..."
-            ></input>
-            <button
-              className="tweet-submit"
-              type="submit"
-             onSubmit={(e)=> 
-              axios.get("/api/randomUser").then((res) => console.log(res.data))
-                }            
-            >
-              Search
-            </button>
+            <form className="search-form">
+              <input
+                className="search-box"
+                type="text"
+                value={searchInput}
+                onChange={(e) => {
+                  setSearchInput(e.target.value);
+                }}
+                placeholder="Enter user name or content..."
+              ></input>
+              <button
+                className="tweet-submit"
+                type="submit"
+                onSubmit={getTweet}
+              >
+                Search
+              </button>
             </form>
-
-             {/* <UserTweetCard />  */}
           </div>
         </div>
       </section>
