@@ -1,12 +1,17 @@
 import React from "react";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import "./UserTweet.css";
 
-function UserTweetNav({ users }) {
-  const [searchInput, setSearchInput] = useState([]);
+function UserTweetNav() {
+  // const [searchVal] = useState("");
+ const [ setData] = useState([])
+
+
+
 
   const getTweet = async () => {
-    const response = await fetch("/api/");
+    const response = await fetch("/api");
     response.json();
     //  setSearchInput(response.data)
   };
@@ -15,6 +20,13 @@ function UserTweetNav({ users }) {
     getTweet();
   }, []);
 
+  const handleOnSubmit=  (e) =>{
+    setData(axios.get("/api/faveTweet").then((res) => console.log(res.data)))
+    console.log(e.target.value)
+
+    // const result = searchVal.filter(users => users.name.toLowerCase().includes(e.target.value) || users.content.toLowerCase().includes(e.target.value))
+  }
+  
   return (
     <div>
       <section className="tweet-nav">
@@ -35,16 +47,17 @@ function UserTweetNav({ users }) {
               <input
                 className="search-box"
                 type="text"
-                value={searchInput}
-                onChange={(e) => {
-                  setSearchInput(e.target.value);
-                }}
+                // value={value}
+                // onChange={(e)=>{
+                //   setData(e.target.value)
+                // }}      
                 placeholder="Enter user name or content..."
               ></input>
               <button
                 className="tweet-submit"
                 type="submit"
-                onSubmit={getTweet}
+                onSubmit={handleOnSubmit}
+               
               >
                 Search
               </button>

@@ -11,16 +11,19 @@ import NoPage from "./components/NoPage";
 function App() {
  
 
-  const fetchData = async () => {
+async function fetchData() {
     const response = await fetch("/api");
-   response.json()
-        //  .catch((err) => console.log(err));
+    const data = await response.json()
+    console.log(data)
   };
+  // .catch((err) => console.log(err));
 
   useEffect(() => {
     fetchData();
   }, []);
 
+
+  
   return (
     <div>
       <BrowserRouter>

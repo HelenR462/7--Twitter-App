@@ -4,7 +4,7 @@ import UserTweetNav from "./UserTweetNav";
 import UserTweetCard from "../TweetCard/UserTweetCard";
 
 function UserTweet() {
- 
+//  const [data, setData] =useState=("")
 
   return (
     <div>

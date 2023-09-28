@@ -1,20 +1,32 @@
 import React from "react";
 import axios from "axios";
+import {useState, useEffect } from "react";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import "./RandomTweet.css";
 import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
 
 function RandomTweet() {
 
+  const [setData] = useState([])
+
+  useEffect(() => {
+    // const response = data.json;
+    const getUser = async () => {
+      const response = await fetch("/api/faveUser");
+      const data = await response.json();
+    setData(data);
+    };
+    getUser().catch(console.error);
+  }, []);
+
   function handleOnClick(e) {
     e.preventDefault();
-    axios.get("/api/RandomUser").then((res) => console.log(res.data));
+    axios.get("/api").then((res) => console.log(res.data));
   }
 
   return (
     <div>
       <RandomNavBar />
-
       <div className="avatar-container">
         <div className="fave-avatar">
           <div>
