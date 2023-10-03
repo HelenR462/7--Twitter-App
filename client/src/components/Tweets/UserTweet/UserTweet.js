@@ -3,13 +3,14 @@ import "./UserTweet.css";
 import UserTweetNav from "./UserTweetNav";
 import UserTweetCard from "../TweetCard/UserTweetCard";
 
-function UserTweet() {
-//  const [data, setData] =useState=("")
+function UserTweet({tweet}) {
 
   return (
     <div>
       <UserTweetNav />
-      <UserTweetCard/>
+      <UserTweetCard
+    tweet={tweet}
+      />
     
     
     </div>

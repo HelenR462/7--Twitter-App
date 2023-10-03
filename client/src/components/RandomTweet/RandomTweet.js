@@ -1,28 +1,26 @@
 import React from "react";
 import axios from "axios";
-import {useState, useEffect } from "react";
+// import { useState} from "react"
+import { useEffect } from "react";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import "./RandomTweet.css";
-import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
+import RandomTweetCard from "../RandomTweet/RandomTweetCard";
 
 function RandomTweet() {
-
-  const [setData] = useState([])
+  // const [setFaveUsers] = useState([]);
 
   useEffect(() => {
-    // const response = data.json;
-    const getUser = async () => {
-      const response = await fetch("/api/faveUser");
-      const data = await response.json();
-    setData(data);
-    };
-    getUser().catch(console.error);
+    fetch("/api/faveUser")
+      .then((res) => res.json())
+      // .then((faveUsers) => setFaveUsers(faveUsers));
   }, []);
 
   function handleOnClick(e) {
     e.preventDefault();
-    axios.get("/api").then((res) => console.log(res.data));
+    axios.get("/api/faveUser").then((res) => console.log(res.data[0]));
   }
+
+  // console.log(faveUsers)
 
   return (
     <div>
@@ -77,7 +75,7 @@ function RandomTweet() {
         </div>
       </div>
       <div className="random_fave">
-        <UserTweetCard className="card" />
+        {/* <RandomTweetCard className="card" /> */}
       </div>
     </div>
   );
