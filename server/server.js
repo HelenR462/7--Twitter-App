@@ -9,47 +9,65 @@ const port = 3001;
 app.use(express.json());
 
 // app.use(express.static("./public"));
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+// app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
-  // const options = {
-  //   method: "GET",
-  //   URL: "https://api.twitter.com/2/tweets/search/recent",
-  //   params: { name: "Elon Musk", handle:"@elonmusk", content: "howdy", date: toDateString()},
-  //   headers: {
-  //     "Content-Type": application / json,
-  //     Authorization: process.env.TWITTER_APP_API_SECRET_KEY,
-  //   },
-  // };
 });
 
+console.log(process.env.TOKEN);
 app.get("/api/faveUser", (req, res) => {
-  res.json([
-     {name: "Elon Musk",  handle: "@elonmusk", 
-     date:Date(), content: "Hello from faveUser!" ,  }
-  ]);
+  const config = {
+    headers: { Authorization: `Bearer ${process.env.TOKEN}` },
+  };
+
+  axios
+    .get("https://api.twitter.com/2/tweets/search/recent?query=nasa", config)
+    .then(function (response) {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 
-app.get("/api/faveTweet", (req, res) => {
-  res.json([
+app.post("/api/faveUser", (req, res) => {
+  // res.json([
+  //   {
+  //     name: "Julia Roberts",
+  //     handle: "@julia_roberts",
+  //     date: Date(),
+  //     content: "Hello from faveTweet!",
+  //   },
+  // ]);
 
-    {name: "Julia Roberts",
-     handle: "@julia_roberts", 
-      date:Date(),
-     content: "Hello from faveTweet!"}
-  ]);
+  console.log(req.body)
+  // const config = {
+  //   headers: { Authorization: `Bearer ${process.env.TOKEN}` },
+  // };
+
+  // axios
+  //   .get("https://api.twitter.com/2/tweets/:id", config)
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //     res.send(response.data);
+  //   })
+  //   .catch(function (err) {
+  //     console.log(err);
+  //   });
+
 });
 
 app.get("/api/randomUser", (req, res) => {
-  res.json([{name:"Milo", content:"I love to bark!" }]);
+  res.json([{ name: "Milo", content: "I love to bark!" }]);
 });
 
 // All other GET requests not handled before will return our React app
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+// });
 
 // app.get("/api", (req, res) => {
 
@@ -107,7 +125,7 @@ const faveUser = [
 
 // console.log(randomUser)
 
-const data = [
+const faveTweet = [
   {
     name: "Elon Musk",
     handle: "@elonmusk",

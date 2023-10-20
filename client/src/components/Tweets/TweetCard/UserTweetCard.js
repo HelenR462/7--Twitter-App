@@ -31,12 +31,12 @@ function UserTweetCard() {
                 alt=""
               />
 
-              {tweets.map((tweet,key) => {
+              {tweets.map((tweet,id) => {
                 return (
-                  <p key={key}>
+                  <p key={id}>
                     {tweet.name}
                     {tweet.handle}
-                    {tweet.tweetDate}
+                    {tweet.date}
                     {tweet.content}
                   </p>
                 );

@@ -3,15 +3,15 @@ import React from "react";
 import {useState,useEffect } from "react";
 import "./UserTweet.css";
 
-function UserTweetNav() {
+function UserTweetNav({tweets}) {
 const [search, setSearch] =useState("")
 
   useEffect(() => {
     fetch("/api/randomUser")
       .then((res) => res.json())
-       .then((tweet) => setSearch(tweet));
+      .then((search) => setSearch(search));
   }, []);
- console.log(search)
+ console.log("search :",search)
  
   return (
     <div>
@@ -29,20 +29,21 @@ const [search, setSearch] =useState("")
       <section className="tweet-body">
         <div className="tweet-container">
           <div className="tweet-input">
-            <form className="search-form">
+            <form 
+            action="/userTweetCard"
+            method="POST"
+            className="search-form">
               <input
                 className="search-box"
                 type="text"
-              // value={tweet}
+                value={tweets}
                onChange={(e) => setSearch(e.target.value)}
                 placeholder="Enter user name or content..."
               ></input>
               <button
                 className="tweet-submit"
                 type="submit"
-                // onSubmit={(e)=>{ setSearch(e.target.value)}}
-                //  onSubmit={ axios.get("/api").then((res) => console.log(res.data))}
-              >
+             >
                 Search
               </button>
             </form>
