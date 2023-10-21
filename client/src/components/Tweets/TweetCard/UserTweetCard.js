@@ -9,10 +9,6 @@ function UserTweetCard() {
 
   // console.log("tweets: ", tweets);
 
-  // const tweetDate = new Date();
-//  let currentDate =format("DD/MM/YYYY");
-  // console.log(date)
-
   useEffect(() => {
     fetch("/api/faveTweet")
       .then((res) => res.json())
@@ -31,19 +27,22 @@ function UserTweetCard() {
                 alt=""
               />
 
-              {tweets.map((tweet,id) => {
+              {tweets.map((tweet, id) => {
                 return (
                   <p key={id}>
                     {tweet.name}
                     {tweet.handle}
                     {tweet.date}
                     {tweet.content}
+
+                    
                   </p>
                 );
               })}
 
               <p>{tweets.length > 0 ? tweets[0].tweets : ""}</p>
 
+<p>This are my fave users in the entire tweet.</p>
               <div className="card-footer">
                 <div className="icons">
                   <div>

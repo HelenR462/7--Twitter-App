@@ -3,16 +3,14 @@ import "./UserTweet.css";
 import UserTweetNav from "./UserTweetNav";
 import UserTweetCard from "../TweetCard/UserTweetCard";
 
-function UserTweet({tweet}) {
+function UserTweet({search}) {
 
   return (
     <div>
       <UserTweetNav />
       <UserTweetCard
-    tweet={tweet}
+    // search={search}
       />
-    
-    
     </div>
   );
 }

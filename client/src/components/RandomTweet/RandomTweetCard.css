@@ -5,65 +5,44 @@
   max-width: 450px ;
   max-height:auto; 
   margin-top:5%; 
-  margin-left:38%; 
+  margin-left:500px; 
   font-family:Arial, Helvetica, sans-serif;
   border-radius: 10px;
  
 }
 
- .w3-card-4{
-  display:flex;
-  flex-direction: column;
-  align-items:flex-start; 
-   /* margin-top: 15px;
-  */
-   } 
- 
- .card-avatar{
-     padding-top: 15px;
-     margin-left: 15px;
-   }
 
-
-.faveUser-card{
-    margin-left:65px;
-    width: 87%;
+  .faveUser-card{
+    width: 90%;
     color:rgb(68, 68, 68);
    
-    } 
+  }
+ 
+ .card-avatar{
+     padding-top: 10px;
+     margin-left: 10px;
+   }
 
-  
-.card-footer{
+  .randomCard-icons{
   display:flex;
-  align-items: center;
-  margin-left: 45px;
-  margin-bottom: 15px;
-  justify-content: space-between; 
-        
-}  
-
-.counts{
-  color: rgb(68, 68, 68);
-  margin-top:-25px;
-  margin-left:55px;
-  font-size:medium;
-}
-
-/* .tweet{
-  margin-left:430px;
-  margin-top:20px;
-} */
-
-/* .randomCard-icon{
-  margin-left: 25px;
+  margin-bottom: 10px;
+  justify-content: space-around; 
   
-}   */
-
-.icon-retweet{
-  margin-left: 25px;
 }
 
-.icon-heart{
-  margin-left: 25px;
+
+.random-tweet{
+  margin-left:65px;
+  align-content: center;
+  justify-content: center;
+ 
+}
+
+.randomRetweet-icon{
+  margin-left: 1px;
+}
+
+.randomHeart-icon{
+  margin-left: 1px;
   
 }

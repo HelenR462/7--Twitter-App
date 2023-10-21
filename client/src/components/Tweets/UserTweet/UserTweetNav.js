@@ -1,18 +1,18 @@
 import React from "react";
-// import axios from "axios";
-import {useState,useEffect } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import "./UserTweet.css";
 
-function UserTweetNav({tweets}) {
-const [search, setSearch] =useState("")
+function UserTweetNav() {
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("/api/randomUser")
       .then((res) => res.json())
       .then((search) => setSearch(search));
   }, []);
- console.log("search :",search)
- 
+  console.log("search :", search);
+
   return (
     <div>
       <section className="tweet-nav">
@@ -29,21 +29,14 @@ const [search, setSearch] =useState("")
       <section className="tweet-body">
         <div className="tweet-container">
           <div className="tweet-input">
-            <form 
-            action="/userTweetCard"
-            method="POST"
-            className="search-form">
+            <form action="/userTweetCard" method="POST" className="search-form">
               <input
                 className="search-box"
                 type="text"
-                value={tweets}
-               onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) =>  axios.get("/api/randomUser").then((res) =>setSearch(e.target.value))}
                 placeholder="Enter user name or content..."
               ></input>
-              <button
-                className="tweet-submit"
-                type="submit"
-             >
+              <button className="tweet-submit" type="submit">
                 Search
               </button>
             </form>

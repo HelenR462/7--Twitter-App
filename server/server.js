@@ -33,7 +33,8 @@ app.get("/api/faveUser", (req, res) => {
     });
 });
 
-app.post("/api/faveUser", (req, res) => {
+app.post("https://api.twitter.com/2/tweets/search/recent?query=nasa", (req, res) => {
+ 
   // res.json([
   //   {
   //     name: "Julia Roberts",
@@ -43,10 +44,10 @@ app.post("/api/faveUser", (req, res) => {
   //   },
   // ]);
 
-  console.log(req.body)
+   console.log(req.body)
   // const config = {
   //   headers: { Authorization: `Bearer ${process.env.TOKEN}` },
-  // };
+   
 
   // axios
   //   .get("https://api.twitter.com/2/tweets/:id", config)

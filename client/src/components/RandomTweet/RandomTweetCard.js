@@ -9,7 +9,7 @@ function RandomTweetCard() {
   const [likesCounter, setLikesCounter] = useState(0);
   const [retweetCounter, setRetweetCounter] = useState(0);
 
-  console.log("users :", users);
+  // console.log("users :", users);
 
   useEffect(() => {
     fetch("/api/faveUser")
@@ -29,25 +29,23 @@ function RandomTweetCard() {
           alt=""
         />
         <div className="faveUser-card">
-          {/* {users.map((user, i) => {
-            return (
-              <p key={[i]}>
-                {user.name}
-                {user.handle}
-                {user.date}
-                {user.content}
-              </p>
-            );
-          })} */}
+     {/* {users.map((user) => ({
+              name:user.name,
+              handle:user.handle,
+              date: user.date,
+              content:user.content
+        }))} */}
         </div>
         {/* <div className="w3-container">
           <p>{data.content}</p>
         </div>
      */}
-        {/* <footer className="w3-container w3-blue color:white;"> */}
+        <footer className="w3-container w3-blue color:white;">
+
+        <p className="random-tweet">This IS my RANDOM users SECTION in the entire tweet.</p>
         <div className="card-footer">
           <div className="randomCard-icons">
-            <div className="icon-retweet">
+            <div className="randomRetweet-icon">
               <img
                 src="../images/icons8-retweet-24.png"
                 alt="retweet"
@@ -57,7 +55,7 @@ function RandomTweetCard() {
               />
               <div className="counts">{retweetCounter}</div>
             </div>
-            <div className="icon-heart">
+            <div className="randomHeart-icon">
               <img
                 src="../images/icons8-heart-24.png"
                 alt="heart"
@@ -69,7 +67,7 @@ function RandomTweetCard() {
             </div>
           </div>
         </div>
-        {/* </footer> */}
+        </footer>
       </div>
     </div>
   );

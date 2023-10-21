@@ -7,9 +7,8 @@ import RandomTweetCard from "../RandomTweet/RandomTweetCard";
 
 function RandomTweet() {
   const [faveUsers, setFaveUsers] = useState([]);
-  
 
-  console.log("faveUsers :", faveUsers)
+  console.log("faveUsers :", faveUsers);
 
   useEffect(() => {
     fetch("/api/faveUser")
@@ -17,28 +16,24 @@ function RandomTweet() {
       .then((data) => setFaveUsers(data));
   }, []);
 
-//  console.log("faveUsers:", faveUsers);
+  //  console.log("faveUsers:", faveUsers);
 
   function handleOnClick(e) {
     e.preventDefault();
     axios.get("/api/faveUser").then((res) => console.log(res.data[0]));
-    
   }
 
-  // const users =[]
-
+ 
   return (
     <div>
       <RandomNavBar />
       <div className="avatar-container">
-     
         <div className="fave-avatar">
-           <div>
+          <div>
             <img
               className="avatar"
               src="../images/Elon_Musk.jpg"
               alt=""
-              // id="171311463234738225"
               onClick={handleOnClick}
             />
             <p className="avatar-userName">Elon Musk</p>
@@ -48,7 +43,6 @@ function RandomTweet() {
               className="avatar"
               src="../images/francine_rivers.jpg"
               alt=""
-              // id="1713208884834296269"
               onClick={handleOnClick}
             />
             <p className="avatar-userName">Francine Rivers</p>
@@ -58,7 +52,6 @@ function RandomTweet() {
               className="avatar"
               src="../images/julia_roberts.jpg"
               alt=""
-              // id="1416429982285541381"
               onClick={handleOnClick}
             />
             <p className="avatar-userName">Julia Roberts</p>
@@ -79,14 +72,14 @@ function RandomTweet() {
               alt=""
               onClick={handleOnClick}
             />
-            <p className="avatar-userName">The{"\n"}Weather{"\n"}Network
-             
-             </p>
+            <p className="avatar-userName">
+              The{"\n"}Weather{"\n"}Network
+            </p>
           </div>
         </div>
       </div>
       <div className="random_fave">
-         <RandomTweetCard  />
+        <RandomTweetCard faveUsers={faveUsers} />
       </div>
     </div>
   );
