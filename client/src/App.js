@@ -7,6 +7,7 @@ import RandomTweet from "./components/RandomTweet/RandomTweet";
 import RandomTweetCard from "./components/RandomTweet/RandomTweetCard";
 import UserTweet from "./components/Tweets/UserTweet/UserTweet";
 import UserTweetCard from "./components/Tweets/TweetCard/UserTweetCard";
+import Card from "./components/Card/Card";
 import NoPage from "./components/NoPage";
 
 function App() {
@@ -32,8 +33,9 @@ function App() {
             <Route path="/RandomTweetCard" element={<RandomTweetCard />}></Route>
             <Route path="/UserTweet" element={<UserTweet 
                   serverData={serverData}     
-            />}></Route>
+                            />}></Route>
             <Route path="/UserTweetCard" element={<UserTweetCard />}></Route>
+            <Route path="/Card" element={<Card />}></Route>
             <Route path="*" element={<NoPage />} />
           </Routes>
         </div>

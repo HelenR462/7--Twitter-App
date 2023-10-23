@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./UserTweetCard.css";
+import Card from "../../Card/Card";
 
 function UserTweetCard() {
   const [tweets, setTweets] = useState([]);
@@ -26,23 +27,10 @@ function UserTweetCard() {
                 src="./images/icons8-user-avatar-50.png"
                 alt=""
               />
+             
+             <Card/>
+              {/* <p>{tweets.length > 0 ? tweets[0].tweets : ""}</p> */}
 
-              {tweets.map((tweet, id) => {
-                return (
-                  <p key={id}>
-                    {tweet.name}
-                    {tweet.handle}
-                    {tweet.date}
-                    {tweet.content}
-
-                    
-                  </p>
-                );
-              })}
-
-              <p>{tweets.length > 0 ? tweets[0].tweets : ""}</p>
-
-<p>This are my fave users in the entire tweet.</p>
               <div className="card-footer">
                 <div className="icons">
                   <div>

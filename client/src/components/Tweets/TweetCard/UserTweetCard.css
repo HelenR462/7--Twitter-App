@@ -1,4 +1,4 @@
- .container{
+  .container{
   display: flex;
   background-color: #faf6f9;
    max-width: 420px ;
@@ -20,7 +20,7 @@
  .card-avatar{
     margin-top:px; 
     /* margin-left:2px;  */
-   }
+    }
 
  p{
      display:inline-flex; 
@@ -30,8 +30,8 @@
    }
 
 p{
-    /* margin-left: 10px; */
-    color:rgb(126, 125, 125)
+     margin-left: 10px; 
+     color:rgb(126, 125, 125)
    }
 
  .card-body{
@@ -72,4 +72,4 @@ p{
 .icon-heart{
   margin-left: 25px;
   
-}
+} 

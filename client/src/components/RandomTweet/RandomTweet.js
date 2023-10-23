@@ -8,16 +8,15 @@ import RandomTweetCard from "../RandomTweet/RandomTweetCard";
 function RandomTweet() {
   const [faveUsers, setFaveUsers] = useState([]);
 
-  console.log("faveUsers :", faveUsers);
+   console.log("faveUsers :", faveUsers);
 
   useEffect(() => {
     fetch("/api/faveUser")
       .then((res) => res.json())
-      .then((data) => setFaveUsers(data));
+      .then((data) => setFaveUsers(data.data));
   }, []);
 
-  //  console.log("faveUsers:", faveUsers);
-
+  
   function handleOnClick(e) {
     e.preventDefault();
     axios.get("/api/faveUser").then((res) => console.log(res.data[0]));

@@ -1,0 +1,20 @@
+.card-container{
+  display: inline-block;
+  flex-direction: column;
+  background-color: #fbf9f9;
+  font-family: Arial, Helvetica, sans-serif;
+ 
+  
+}
+.card-items{
+  padding:5px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  margin:30px;
+  font-size: medium;
+  list-style: none;
+  max-width:420px;
+  /* max-height:100px; */
+  /* border: 1px solid  */
+}
