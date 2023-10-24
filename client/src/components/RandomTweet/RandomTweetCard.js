@@ -4,23 +4,16 @@ import { useEffect } from "react";
 import "../RandomTweet/RandomTweetCard.css";
 import Card from "../Card/Card";
 
-
 function RandomTweetCard() {
   const [users, setUsers] = useState([]);
   const [likesCounter, setLikesCounter] = useState(0);
   const [retweetCounter, setRetweetCounter] = useState(0);
-
-  // console.log("users :", users);
-  // const result = users.filter((user) =>  <p>{users.length > 0 ? users[0].users : ""}</p>);
 
   useEffect(() => {
     fetch("/api/faveUser")
       .then((res) => res.json())
       .then((data) => setUsers(data.data));
   }, []);
-
-  // const handleClick =(e)=>{
-  //   OnClick === true? setShowData(true):false}
 
   return (
     <div className="randomCardContainer">
@@ -30,30 +23,11 @@ function RandomTweetCard() {
           src="./images/icons8-user-avatar-50.png"
           alt=""
         />
-          
-        <div className="faveUser-card">
-  
-         {/* {users.map((user,id) => {
-            return(
-              <p key={id}>
-            {user.name  }
-            {user.handle}
-            {user.date  }
-            {user.text}
-            </p>
-           )})} */}
-        </div> 
 
-        <Card/>
-        {/* <div className="w3-container">
-          <p>{data.content}</p>
-        </div>
-     */}
+        <Card />
+
         <footer className="w3-container w3-blue">
-          <div className="random-tweet">
-         
-            {/* This IS my RANDOM users SECTION in the entire tweet. */}
-          </div>
+          <div className="random-tweet"></div>
           <div className="card-footer">
             <div className="randomCard-icons">
               <div className="randomRetweet-icon">

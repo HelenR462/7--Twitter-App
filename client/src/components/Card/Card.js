@@ -14,7 +14,7 @@ function Card() {
   console.log(users);
   return (
     <div className="card-container">
-      {users.map((user) => {
+      {users.slice(0,1).map((user) => {
         return (
           <ul className="card-items" key={user.id}>
             <li className="card">

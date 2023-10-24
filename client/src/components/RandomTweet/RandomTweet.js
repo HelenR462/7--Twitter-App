@@ -3,12 +3,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
-import RandomTweetCard from "../RandomTweet/RandomTweetCard";
+import Card from "../Card/Card";
+import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
 
 function RandomTweet() {
   const [faveUsers, setFaveUsers] = useState([]);
 
-   console.log("faveUsers :", faveUsers);
+  //  console.log("faveUsers :", faveUsers);
 
   useEffect(() => {
     fetch("/api/faveUser")
@@ -78,7 +79,7 @@ function RandomTweet() {
         </div>
       </div>
       <div className="random_fave">
-        <RandomTweetCard faveUsers={faveUsers} />
+        <UserTweetCard faveUsers={faveUsers} />
       </div>
     </div>
   );

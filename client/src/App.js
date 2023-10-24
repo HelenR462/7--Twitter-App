@@ -11,8 +11,8 @@ import Card from "./components/Card/Card";
 import NoPage from "./components/NoPage";
 
 function App() {
-   const [serverData, setServerData] = useState([]);
-// console.log("serverData :", serverData)
+  const [serverData, setServerData] = useState([]);
+  // console.log("serverData :", serverData)
 
   // Make HTTP Requests from React to Node
 
@@ -20,7 +20,6 @@ function App() {
     fetch("/api")
       .then((res) => res.json())
       .then((serverData) => setServerData(serverData));
-
   }, []);
 
   return (
@@ -30,10 +29,14 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/RandomTweet" element={<RandomTweet />}></Route>
-            <Route path="/RandomTweetCard" element={<RandomTweetCard />}></Route>
-            <Route path="/UserTweet" element={<UserTweet 
-                  serverData={serverData}     
-                            />}></Route>
+            <Route
+              path="/RandomTweetCard"
+              element={<RandomTweetCard />}
+            ></Route>
+            <Route
+              path="/UserTweet"
+              element={<UserTweet serverData={serverData} />}
+            ></Route>
             <Route path="/UserTweetCard" element={<UserTweetCard />}></Route>
             <Route path="/Card" element={<Card />}></Route>
             <Route path="*" element={<NoPage />} />

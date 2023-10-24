@@ -16,7 +16,7 @@ app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
 
-console.log(process.env.TOKEN);
+ console.log(process.env.TOKEN);
 app.get("/api/faveUser", (req, res) => {
   const config = {
     headers: { Authorization: `Bearer ${process.env.TOKEN}` },
@@ -33,31 +33,13 @@ app.get("/api/faveUser", (req, res) => {
     });
 });
 
+
 app.post(
   "https://api.twitter.com/2/tweets/search/recent?query=nasa",
   (req, res) => {
-    // res.json([
-    //   {
-    //     name: "Julia Roberts",
-    //     handle: "@julia_roberts",
-    //     date: Date(),
-    //     content: "Hello from faveTweet!",
-    //   },
-    // ]);
-
-    console.log(req.body);
-    // const config = {
-    //   headers: { Authorization: `Bearer ${process.env.TOKEN}` },
-
-    // axios
-    //   .get("https://api.twitter.com/2/tweets/:id", config)
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //     res.send(response.data);
-    //   })
-    //   .catch(function (err) {
-    //     console.log(err);
-    //   });
+   
+    res,json(req.body);
+    
   }
 );
 

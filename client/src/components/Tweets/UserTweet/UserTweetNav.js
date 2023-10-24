@@ -6,12 +6,13 @@ import "./UserTweet.css";
 function UserTweetNav() {
   const [search, setSearch] = useState("");
 
+  console.log("search :", search);
+
   useEffect(() => {
     fetch("/api/randomUser")
       .then((res) => res.json())
       .then((search) => setSearch(search));
   }, []);
-  console.log("search :", search);
 
   return (
     <div>
@@ -33,7 +34,11 @@ function UserTweetNav() {
               <input
                 className="search-box"
                 type="text"
-                onChange={(e) =>  axios.get("/api/randomUser").then((res) =>setSearch(e.target.value))}
+                onChange={(e) =>
+                  axios
+                    .get("/api/randomUser")
+                    .then((res) => setSearch(e.target.value))
+                }
                 placeholder="Enter user name or content..."
               ></input>
               <button className="tweet-submit" type="submit">
