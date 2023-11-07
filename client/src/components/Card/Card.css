@@ -1,9 +1,10 @@
 .card-container{
-  display: inline-block;
+  display: flex;
   flex-direction: column;
   background-color: #fbf9f9;
   font-family: Arial, Helvetica, sans-serif;
- 
+  max-width:420px;
+  height:auto;
   
 }
 .card-items{
@@ -11,10 +12,17 @@
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  margin:30px;
   font-size: medium;
   list-style: none;
-  max-width:420px;
-  /* max-height:100px; */
-  /* border: 1px solid  */
+ 
 }
+
+li{
+  color:rgb(88, 86, 86);
+  margin-left:10px;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgb(202, 201, 201);
+  
+}
+

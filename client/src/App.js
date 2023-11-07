@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomeMain";
@@ -11,16 +11,16 @@ import Card from "./components/Card/Card";
 import NoPage from "./components/NoPage";
 
 function App() {
-  const [serverData, setServerData] = useState([]);
+  // const [serverData, setServerData] = useState([]);
   // console.log("serverData :", serverData)
 
   // Make HTTP Requests from React to Node
 
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((serverData) => setServerData(serverData));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api")
+  //     .then((res) => res.json())
+  //     .then((serverData) => setServerData(serverData));
+  // }, []);
 
   return (
     <div>
@@ -35,7 +35,9 @@ function App() {
             ></Route>
             <Route
               path="/UserTweet"
-              element={<UserTweet serverData={serverData} />}
+              element={<UserTweet 
+                // serverData={serverData} 
+                />}
             ></Route>
             <Route path="/UserTweetCard" element={<UserTweetCard />}></Route>
             <Route path="/Card" element={<Card />}></Route>

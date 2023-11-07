@@ -1,7 +1,7 @@
   .container{
   display: flex;
   background-color: #faf6f9;
-   max-width: 420px ;
+   max-width: 450px ;
   max-height:auto; 
   margin-top:3%; 
   margin-left:35%; 
@@ -17,36 +17,19 @@
  
   }
 
- .card-avatar{
-    margin-top:px; 
-    /* margin-left:2px;  */
-    }
-
  p{
      display:inline-flex; 
      color:rgb(68, 68, 68);
      margin-bottom:5px;
-     margin-left:5px;
+     margin-left:15px;
    }
 
-p{
-     margin-left: 10px; 
-     color:rgb(126, 125, 125)
-   }
-
- .card-body{
-    margin-left:5px;
-    width: 90%;
-    color:rgb(68, 68, 68);
-    margin-top: 15px; 
-    margin-bottom:35px;
-    padding-bottom: 15px;
-  }
-     
+ 
+      
 .card-footer .icons{
     display:flex;
     align-items: center;
-    margin-left: 45px;
+     margin:0 100px;
     margin-bottom: 15px;
     justify-content: space-between; 
     
@@ -56,14 +39,10 @@ p{
 .counts{
   color: rgb(68, 68, 68);
   margin-top:-25px;
-  margin-left:55px;
+  margin-left:65px;
   font-size:medium;
 }
 
-.tweet{
-  margin-left:430px;
-  margin-top:20px;
-}
 
 .icon-retweet{
   margin-left: 25px;
