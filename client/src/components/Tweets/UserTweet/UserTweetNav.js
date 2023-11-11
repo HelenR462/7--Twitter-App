@@ -5,29 +5,21 @@ import "./UserTweet.css";
 
 function UserTweetNav() {
   const [search, setSearch] = useState("");
-  const [setResults] = useState([])
+  const [results, setResults] = useState([]);
 
   console.log("search :", search);
 
-
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('/api/randomUser');
-      setResults(response.data);
-    } catch (error) {
-      console.error('Error searching:', error);
-    }
-  };
-
-  if (search) {
-    fetchData(); 
-  }
-}, [search]);
+  useEffect(() => {
+    fetch("/api/randomUser")
+      .then((res) => res.json())
+      .then((data) => setResults(data.data));
+  }, []);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-     setSearch("")
+    axios.get("/api/randomUser").then((res) => console.log(res.data[0]));
+
+    setSearch("");
   };
 
   return (
@@ -47,35 +39,26 @@ useEffect(() => {
         <div className="tweet-container">
           <div className="tweet-input">
             <form onSubmit={handleOnSubmit} className="userTweetCard">
-              <input 
+              <input
                 className="search-form"
                 type="text"
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
-                
                 }}
                 placeholder="Enter user name or content..."
               />
               <button type="submit">Search</button>
             </form>
-            {/* <ul>
-        {(results || []).filter((result) => {
-             if(search === ""){
-              return result
-            } 
-            else if(result.name || result.content.toLowerCase().includes(search.toLowerCase())){
-              return result
-             }})
-       
-        .map((result, index)=>{ 
-              <li key={index}> 
-              <strong>{result.name}:</strong> {result.content}
-              </li>
-        })}
-        </ul>
-         */}
-           </div>
+            <ul>
+              {results.map((result, index) => {
+                <li key={index}>
+                  <strong>{result.name}:</strong> {result.content}
+                </li>;
+              })}
+              ;
+            </ul>
+          </div>
         </div>
       </section>
     </div>

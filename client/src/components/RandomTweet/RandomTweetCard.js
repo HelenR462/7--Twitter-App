@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../RandomTweet/RandomTweetCard.css";
+// import Card from "../Card/Card";
 
 function RandomTweetCard() {
   const [likesCounter, setLikesCounter] = useState(0);

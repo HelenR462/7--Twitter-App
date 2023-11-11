@@ -15,7 +15,7 @@ app.get("/api", (req, res) => {
 });
 
 console.log(process.env.TOKEN);
-app.get("/api/faveUser", (req, res) => {
+app.get("/api/faveUser", async(req, res) => {
   const config = {
     headers: { Authorization: `Bearer ${process.env.TOKEN}` },
   };
@@ -34,9 +34,14 @@ app.get("/api/faveUser", (req, res) => {
     });
 });
 
+app.post("/api/faveUser", (req, res) => {
+  data.push(req.body)
+    res.json(data)
+})
+
+
 
 app.get("/api/randomUser", (req, res) => {
-
   const config = {
     headers: {
       Authorization: `Bearer ${process.env.TOKEN}`
@@ -44,9 +49,9 @@ app.get("/api/randomUser", (req, res) => {
   };
 
   axios
-    .get("api/randomUser ",config)
+    .get("https://api.twitter.com/2/tweets/search/recent?query=nasa",config)
     .then(function (response) {
-    console.log(response.data);
+     console.log(response.data);
     res.send(response.data);
   })
   .catch(function (err) {
@@ -55,34 +60,17 @@ app.get("/api/randomUser", (req, res) => {
   });
 })
 
-//   app.post("/api/randomUser", (req, res) => {
-//   const { name, content } = req.body;
+  app.post("/api/randomUser", (req, res) => {
+  const { name, content } = req.body;
 
-//   if (name && content) {
-//    const newUser = { name, content };
-//   users.push(newUser);
-//    res.json(users);
-// } else {
-//   res.status(400).json({ error: 'Name and content are required' });
-// }
-// })
-// }
-// );
-
-
-// app.post("/api/randomUser", (req, res) => {
-//   const { search } = req.body;
-
-//    const result = performSearch(search);
-
-//   res.json(search);
-
-// function performSearch(search) {
-//    return [search];
-// }
-//  })
-
-
+  if (name && content) {
+   const randomUser = { name, content };
+  users.push(randomUser);
+   res.json(randomUser);
+} else {
+  res.status(400).json({ error: 'Name and content are required' });
+}
+});
 
 
 app.listen(port, () => {
