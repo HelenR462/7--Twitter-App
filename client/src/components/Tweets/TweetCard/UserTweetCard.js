@@ -3,7 +3,7 @@ import "./UserTweetCard.css";
 import Card from "../../Card/Card";
 import Footer from "../../Footer";
 
-function UserTweetCard() {
+function UserTweetCard({ users }) {
   return (
     <div className="container">
       <form className="card border-info mb-3">
@@ -17,9 +17,8 @@ function UserTweetCard() {
               />
             </div>
 
-            <Card />
+            <Card users={users} />
             <Footer />
-            
           </div>
         </div>
       </form>

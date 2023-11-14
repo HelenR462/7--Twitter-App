@@ -1,23 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import "./UserTweet.css";
 
 function UserTweetNav() {
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState([]);
-
-  console.log("search :", search);
-
-  useEffect(() => {
-    fetch("/api/randomUser")
-      .then((res) => res.json())
-      .then((data) => setResults(data.data));
-  }, []);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    axios.get("/api/randomUser").then((res) => console.log(res.data[0]));
+    axios.get("/api/randomUser").then((res) => console.log(res.data.data));
 
     setSearch("");
   };
@@ -50,14 +41,6 @@ function UserTweetNav() {
               />
               <button type="submit">Search</button>
             </form>
-            <ul>
-              {results.map((result, index) => {
-                <li key={index}>
-                  <strong>{result.name}:</strong> {result.content}
-                </li>;
-              })}
-              ;
-            </ul>
           </div>
         </div>
       </section>
