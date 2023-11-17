@@ -8,17 +8,6 @@ const port = 3001;
 
 app.use(express.json());
 
-// const faveUserImages = [
-//   { id: 1, name: "Elon Musk", img: "../images/Elon_Musk.jpg" },
-//   { id: 2, name: "Francine Rivers", img: "../images/francine_rivers.jpg" },
-//   { id: 3, name: "Julia Roberts", img: "../images/julia_roberts.jpg" },
-//   { id: 4, name: "Quizscape", img: "../images/quizscape.jpg" },
-//   {
-//     id: 5,
-//     name: "The Weather Network",
-//     img: "../images/The_Weather_Network.png",
-//   },
-// ];
 
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
@@ -32,7 +21,7 @@ app.get("/api/faveUser", async (req, res) => {
   };
 
   axios
-    .get("https://api.twitter.com/2/tweets/search/recent?query=nasa ", config)
+    .get("https://api.twitter.com/2/tweets/search/recent?query=nasa", config)
     .then(function (response) {
       console.log(response.data);
       res.send(response.data);
@@ -42,33 +31,40 @@ app.get("/api/faveUser", async (req, res) => {
     });
 });
 
-app.post("/api/faveUser", (req, res) => {
-  data.push(req.body);
-  res.json(data);
+// app.post("/api/faveUser", (req, res) => {
+//   data.push(req.body);
+//   res.json(data);
+// });
+
+app.get("/api/randomUser", (req, res) => {
+  const { query } = req.query;
+
+  if (!query) {
+    return res.status(400).json({ error: "Missing query parameter" });
+  }
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${process.env.TOKEN}`,
+    },
+  };
+
+  axios
+    .get(
+      `https://api.twitter.com/2/tweets/search/recent?query=${query}`,
+      config
+    )
+    .then(function (response) {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch(function (err) {
+      console.error('Error from Twitter API:', err.response?.data || err.message);
+      res.status(500).json({ error: "Twitter API request failed" });
+    });
 });
 
-// app.get("/api/randomUser", (req, res) => {
-//   const config = {
-//     headers: {
-//       Authorization: `Bearer ${process.env.TOKEN}`
-//     },
-//   };
 
-//   axios
-//     .get("https://api.twitter.com/2/tweets/search/recent?query=nasa",config)
-//     .then(function (response) {
-//      console.log(response.data);
-//     res.send(response.data);
-//     })
-//   .catch(function (err) {
-//     console.log(err);
-//     res.status(500).json({ error: 'Twitter API request failed' });
-//   });
-// })
-
-// const users = [];
-
-// Create a random user
 app.post("/api/randomUser", (req, res) => {
   const { name, content } = req.body;
 
@@ -81,19 +77,19 @@ app.post("/api/randomUser", (req, res) => {
   }
 });
 
-app.get("/api/searchRandomUsers", (req, res) => {
-  const { query } = req.query; // Assuming the query parameter contains the search term
+// app.get("/api/searchRandomUsers", (req, res) => {
+//   const { query } = req.query; // Assuming the query parameter contains the search term
 
-  if (!query) {
-    return res.status(400).json({ error: "Search query is required" });
-  }
+//   if (!query) {
+//     return res.status(400).json({ error: "Search query is required" });
+//   }
 
-  const results = users.filter((user) => {
-    return user.name.includes(query) || user.content.includes(query);
-  });
+//   const results = users.filter((user) => {
+//     return user.name.includes(query) || user.content.includes(query);
+//   });
 
-  res.json(results);
-});
+//   res.json(results);
+// });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

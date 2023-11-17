@@ -1,9 +1,8 @@
 import React from "react";
 import "./UserTweetCard.css";
-import Card from "../../Card/Card";
-import Footer from "../../Footer";
 
-function UserTweetCard({ users }) {
+
+function UserTweetCard() {
   return (
     <div className="container">
       <form className="card border-info mb-3">
@@ -16,10 +15,7 @@ function UserTweetCard({ users }) {
                 alt=""
               />
             </div>
-
-            <Card users={users} />
-            <Footer />
-          </div>
+           </div>
         </div>
       </form>
     </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "../RandomTweet/RandomTweetCard.css";
-// import Card from "../Card/Card";
 
 function RandomTweetCard() {
   const [likesCounter, setLikesCounter] = useState(0);
@@ -10,12 +9,12 @@ function RandomTweetCard() {
   return (
     <div className="randomCardContainer">
       <div className="w3-card-4">
-        <img
+        {/* <img
           className="card-avatar"
           src="./images/icons8-user-avatar-50.png"
           alt=""
-        />
-      
+        /> */}
+
         <footer className="w3-container w3-blue">
           {/* <div className="random-tweet"></div> */}
           <div className="card-footer">
@@ -28,7 +27,7 @@ function RandomTweetCard() {
                     setRetweetCounter((prev) => prev + 1);
                   }}
                 />
-       
+
                 <div className="counts">{retweetCounter}</div>
               </div>
               <div className="randomHeart-icon">

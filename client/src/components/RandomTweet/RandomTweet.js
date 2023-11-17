@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
-import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
-// import Card from "../Card/Card";
+import Card from "../Card/Card";
+
 
 function RandomTweet() {
+  const [selectedUser, setSelectedUser] = useState("");
   const [faveUsers, setFaveUsers] = useState([]);
 
   const isLoaded = useRef(false);
+
+  console.log(faveUsers);
+  // console.log("selectedUser:", selectedUser)
 
   const faveUserImages = [
     { id: 1, name: "Elon Musk", img: "../images/Elon_Musk.jpg" },
@@ -21,28 +25,37 @@ function RandomTweet() {
     },
   ];
 
-  console.log("faveUsers :", faveUsers);
-
   useEffect(() => {
-    if (isLoaded.current === false) {
-      axios.get("/api/faveUser").then((data) => {
-        setFaveUsers(data.data.id);
-        console.log(data.data);
-      });
+    if (!isLoaded.current && selectedUser) {
+      axios
+        .get(`/api/faveUser?screen_name=${selectedUser.name}`)
+        .then((data) => {
+          setFaveUsers(data.data);
+          // console.log(data.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching tweets:", error);
+        });
       isLoaded.current = true;
     }
-  }, []);
+  }, [selectedUser]);
 
   function handleImageOnClick(e) {
-    // axios.get("/api/faveUser").then((res) => {
-    //   setFaveUsers(res.data.data);
-    // });
+    const selectedUserName = e.target.alt;
+    const selectedUserObject = faveUserImages.find(
+      (user) => user.name === selectedUserName
+    );
+    setSelectedUser(selectedUserObject);
+    isLoaded.current = false;
   }
+
+  // useEffect(() => {
+  //   console.log(faveUsers);
+  // }, [faveUsers]);
 
   return (
     <div>
       <RandomNavBar />
-
       <div className="avatar-container">
         <div className="fave-avatar">
           {faveUserImages.map((user) => (
@@ -50,8 +63,8 @@ function RandomTweet() {
               <img
                 className="avatar"
                 src={user.img}
-                alt=""
-                onClick={handleImageOnClick(user)}
+                alt={user.name}
+                onClick={handleImageOnClick}
               />
               <p className="avatar-userName">{user.name}</p>
             </div>
@@ -60,7 +73,7 @@ function RandomTweet() {
       </div>
 
       <div className="random_fave">
-        <UserTweetCard />
+       <Card />
       </div>
     </div>
   );

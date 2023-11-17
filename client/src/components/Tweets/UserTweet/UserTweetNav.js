@@ -3,14 +3,34 @@ import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
 
-function UserTweetNav() {
+
+function UserTweetNav({users}) {
+  // const [showData, setShowData] = useState(false);
   const [search, setSearch] = useState("");
+  const [usersData, setUsersData] = useState([]);
+  const [userNotFound, setUserNotFound] = useState(false);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    axios.get("/api/randomUser").then((res) => console.log(res.data.data));
 
-    setSearch("");
+    if (search.trim() !== "") {
+      axios
+        .get(`/api/randomUser?query=${search}`)
+        .then((res) => {
+          const fetchUsersData = res.data.data;
+          if (fetchUsersData.length === 0) {
+            console.log(`No user found for{search}`);
+          } else {
+            setUsersData(fetchUsersData);
+          }
+
+          console.log(fetchUsersData.length);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+      setSearch("");
+    }
   };
 
   return (
@@ -41,6 +61,12 @@ function UserTweetNav() {
               />
               <button type="submit">Search</button>
             </form>
+        
+            {userNotFound && (
+              <div className="no-results-message">
+                No user found for "{search}".
+              </div>
+            )}
           </div>
         </div>
       </section>

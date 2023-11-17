@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./UserTweet.css";
 import UserTweetNav from "./UserTweetNav";
-import UserTweetCard from "../TweetCard/UserTweetCard";
+import Card from "../../Card/Card";
+
 
 function UserTweet() {
   const [users, setUsers] = useState([]);
@@ -21,12 +22,11 @@ function UserTweet() {
     }
   }, []);
 
-  console.log("users :", users);
   return (
     <div>
       <UserTweetNav />
-      <UserTweetCard />
-      {/* users={users} /> */}
+       <Card users={users}/>
+      
     </div>
   );
 }

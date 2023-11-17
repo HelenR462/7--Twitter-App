@@ -1,12 +1,24 @@
 .card-container{
   display: flex;
   flex-direction: column;
-  background-color: #fbf9f9;
+  background-color: #f1eeee;
   font-family: Arial, Helvetica, sans-serif;
   max-width:420px;
   height:auto;
+  border-radius: 10px;
   
 }
+
+.card-avatar-img{
+  width: 50px;
+  height:50px ;
+  border-radius: 50%; 
+  /* border: 2px solid rgb(0, 179, 255); */
+  margin-bottom:10px;
+  margin-top:10px;   
+  margin-left: 10px;
+}
+
 .card-items{
   padding:5px;
   border-radius: 20px;
