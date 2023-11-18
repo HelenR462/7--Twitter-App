@@ -1,4 +1,4 @@
-.card-container{
+ .card-container{
   display: flex;
   flex-direction: column;
   background-color: #f1eeee;
@@ -13,7 +13,6 @@
   width: 50px;
   height:50px ;
   border-radius: 50%; 
-  /* border: 2px solid rgb(0, 179, 255); */
   margin-bottom:10px;
   margin-top:10px;   
   margin-left: 10px;
@@ -22,8 +21,6 @@
 .card-items{
   padding:5px;
   border-radius: 20px;
-  justify-content: center;
-  align-items: center;
   font-size: medium;
   list-style: none;
  
@@ -37,4 +34,4 @@ li{
   border-bottom: 2px solid rgb(202, 201, 201);
   
 }
-
+ 

@@ -16,7 +16,7 @@ function RandomTweetCard() {
         /> */}
 
         <footer className="w3-container w3-blue">
-          {/* <div className="random-tweet"></div> */}
+          <div className="random-tweet"></div>
           <div className="card-footer">
             <div className="randomCard-icons">
               <div className="randomRetweet-icon">

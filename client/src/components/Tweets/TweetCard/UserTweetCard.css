@@ -1,13 +1,12 @@
-  .container{
+  .card-container{
   display: flex;
-  background-color: #faf6f9;
-   max-width: 450px ;
+  max-width: 450px ;
   max-height:auto; 
   margin-top:3%; 
   margin-left:35%; 
   font-family:Arial, Helvetica, sans-serif;
   border-radius: 10px;
-}
+} 
  
 .card-header{
   display:flex;
@@ -17,14 +16,13 @@
  
   }
 
- p{
-     display:inline-flex; 
+  p{
+     display:flex; 
      color:rgb(68, 68, 68);
      margin-bottom:5px;
      margin-left:15px;
    }
 
- 
       
 .card-footer .icons{
     display:flex;
@@ -51,4 +49,4 @@
 .icon-heart{
   margin-left: 25px;
   
-} 
+}  

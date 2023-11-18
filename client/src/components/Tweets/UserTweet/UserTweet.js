@@ -4,7 +4,6 @@ import "./UserTweet.css";
 import UserTweetNav from "./UserTweetNav";
 import Card from "../../Card/Card";
 
-
 function UserTweet() {
   const [users, setUsers] = useState([]);
 
@@ -25,8 +24,7 @@ function UserTweet() {
   return (
     <div>
       <UserTweetNav />
-       <Card users={users}/>
-      
+      <Card users={users} />
     </div>
   );
 }

@@ -1,36 +1,36 @@
-.randomCardContainer{
+/* .randomCardContainer{
  display:flex;
-  background-color: #faf6f9;
+  background-color: #de0ca9;
   border: #faf6f9 solid 1px;
   max-width: 450px ;
   max-height:auto; 
   margin-top:5%; 
-  margin-left:500px; 
+  margin-left:30%; 
   font-family:Arial, Helvetica, sans-serif;
   border-radius: 10px;
  
-}
+} */ 
 
 
-  .faveUser-card{
+   /* .faveUser-card{
     width: 90%;
     color:rgb(68, 68, 68);
    
-  }
+  }  */
  
- .card-avatar{
+  /* .card-avatar{
      padding-top: 12px;
      margin-left: 12px;
-   }
-
-  .randomCard-icons{
+   }  */
+ 
+  /* .randomCard-icons{
   display:flex;
   margin-bottom: 10px;
   justify-content: space-around; 
-  
-}
+  color:blue
+} */
 
-
+/* 
 .random-tweet{
   margin-left:65px;
   align-content: center;
@@ -44,5 +44,5 @@
 
 .randomHeart-icon{
   margin-left: 1px;
-  
-}
+  color:red;
+}  */

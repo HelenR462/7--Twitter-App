@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 function HomeNavBar() {
- 
-
   return (
     <nav>
       <div className="btn">
@@ -18,7 +15,6 @@ function HomeNavBar() {
           Random Tweet
         </Link>
       </div>
-   
     </nav>
   );
 }

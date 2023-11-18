@@ -3,8 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
 
-
-function UserTweetNav({users}) {
+function UserTweetNav({ users }) {
   // const [showData, setShowData] = useState(false);
   const [search, setSearch] = useState("");
   const [usersData, setUsersData] = useState([]);
@@ -24,7 +23,7 @@ function UserTweetNav({users}) {
             setUsersData(fetchUsersData);
           }
 
-          console.log(fetchUsersData.length);
+          setUserNotFound(fetchUsersData.length === 0);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -56,15 +55,30 @@ function UserTweetNav({users}) {
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
+                  setUserNotFound(false);
                 }}
                 placeholder="Enter user name or content..."
               />
-              <button type="submit">Search</button>
+              <button className="tweet-submit-btn" type="submit">
+                Search
+              </button>
             </form>
-        
+
             {userNotFound && (
               <div className="no-results-message">
                 No user found for "{search}".
+              </div>
+            )}
+            {usersData.length > 0 && (
+              <div className="user-data">
+                {usersData.map((user) => (
+                  <div key={user.id}>
+                    <h4>{user.name}</h4>
+                    <h5>{user.screen_name}</h5>
+                    <p>{user.created_at}</p>
+                    <p>{user.text}</p>
+                  </div>
+                ))}
               </div>
             )}
           </div>

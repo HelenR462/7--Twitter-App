@@ -8,7 +8,6 @@ const port = 3001;
 
 app.use(express.json());
 
-
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
@@ -16,18 +15,30 @@ app.get("/api", (req, res) => {
 
 console.log(process.env.TOKEN);
 app.get("/api/faveUser", async (req, res) => {
+  const { screen_name } = req.query;
+
+  if (!screen_name) {
+    return res.status(400).json({ error: "Screen name is required." });
+  }
+
   const config = {
     headers: { Authorization: `Bearer ${process.env.TOKEN}` },
   };
 
   axios
-    .get("https://api.twitter.com/2/tweets/search/recent?query=nasa", config)
+    .get(
+      `https://api.twitter.com/2/tweets/search/recent?query=${screen_name}`,
+      config
+    )
     .then(function (response) {
       console.log(response.data);
       res.send(response.data);
     })
     .catch(function (err) {
       console.log(err);
+      res
+        .status(500)
+        .json({ error: "Error fetching tweets from Twitter API." });
     });
 });
 
@@ -59,11 +70,13 @@ app.get("/api/randomUser", (req, res) => {
       res.send(response.data);
     })
     .catch(function (err) {
-      console.error('Error from Twitter API:', err.response?.data || err.message);
+      console.error(
+        "Error from Twitter API:",
+        err.response?.data || err.message
+      );
       res.status(500).json({ error: "Twitter API request failed" });
     });
 });
-
 
 app.post("/api/randomUser", (req, res) => {
   const { name, content } = req.body;

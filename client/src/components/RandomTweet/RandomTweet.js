@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./RandomTweet.css";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import Card from "../Card/Card";
 
-
-function RandomTweet() {
-  const [selectedUser, setSelectedUser] = useState("");
+function RandomTweet({ users }) {
+  const [selectedUser, setSelectedUser] = useState(null);
   const [faveUsers, setFaveUsers] = useState([]);
 
   const isLoaded = useRef(false);
-
-  console.log(faveUsers);
-  // console.log("selectedUser:", selectedUser)
 
   const faveUserImages = [
     { id: 1, name: "Elon Musk", img: "../images/Elon_Musk.jpg" },
@@ -47,11 +44,8 @@ function RandomTweet() {
     );
     setSelectedUser(selectedUserObject);
     isLoaded.current = false;
+    console.log("Selected User:", selectedUserObject);
   }
-
-  // useEffect(() => {
-  //   console.log(faveUsers);
-  // }, [faveUsers]);
 
   return (
     <div>
@@ -72,9 +66,7 @@ function RandomTweet() {
         </div>
       </div>
 
-      <div className="random_fave">
-       <Card />
-      </div>
+      <Card users={users} faveUsers={faveUsers} />
     </div>
   );
 }

@@ -1,12 +1,16 @@
+ body{
+    background-color:black ;
+  }
+
 .avatar-container{
- /* background-color:rgb(5, 5, 5); */
  display:flex;
  flex-direction:row;
  width:30%;
  height: 539px;
+ margin-bottom: -150px;
  align-items: center;
 
-}
+} 
 
 .fave-avatar{
   display:flex;
@@ -30,12 +34,5 @@
  
  }
 
- /* img.avatar:hover{
-  background-color: rgb(246, 250, 250);
-   
- } */
 
- /* tweet card */
-.random_fave{
-   margin-top:-190px;
-}
+ 
