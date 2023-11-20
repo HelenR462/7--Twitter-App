@@ -3,6 +3,7 @@ import axios from "axios";
 import "./RandomTweet.css";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import Card from "../Card/Card";
+import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
 
 function RandomTweet({ users }) {
   const [selectedUser, setSelectedUser] = useState(null);
@@ -65,7 +66,7 @@ function RandomTweet({ users }) {
           ))}
         </div>
       </div>
-
+      <UserTweetCard />
       <Card users={users} faveUsers={faveUsers} />
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import "./UserTweetCard.css";
-import Card from "../../Card/Card";
 
 function UserTweetCard() {
   return (
@@ -9,13 +8,11 @@ function UserTweetCard() {
         <div className="card-header">
           <div className="card-title">
             <div>
-              {/* <img
+              <img
                 className="card-avatar"
                 src="./images/icons8-user-avatar-50.png"
                 alt=""
-              /> */}
-
-              <Card/>
+              />
             </div>
           </div>
         </div>

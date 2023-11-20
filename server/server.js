@@ -14,6 +14,7 @@ app.get("/api", (req, res) => {
 });
 
 console.log(process.env.TOKEN);
+
 app.get("/api/faveUser", async (req, res) => {
   const { screen_name } = req.query;
 
