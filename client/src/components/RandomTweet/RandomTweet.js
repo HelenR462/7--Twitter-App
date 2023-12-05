@@ -3,16 +3,25 @@ import axios from "axios";
 import "./RandomTweet.css";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import Card from "../Card/Card";
-import UserTweetCard from "../Tweets/TweetCard/UserTweetCard";
 
 function RandomTweet({ users }) {
   const [selectedUser, setSelectedUser] = useState(null);
   const [faveUsers, setFaveUsers] = useState([]);
+  // const [randomTweet, setRandomTweet] = useState(null);
 
   const isLoaded = useRef(false);
 
-  const faveUserImages = [
-    { id: 1, name: "Elon Musk", img: "../images/Elon_Musk.jpg" },
+  const imagesObj = [
+    {
+      id: 1,
+      name: "Elon Musk",
+      img: "../images/Elon_Musk.jpg",
+      tweets: [
+        { id: 1, text: "Tweet 1 from Elon Musk" },
+        { id: 2, text: "Tweet 2 from Elon Musk" },
+        { id: 3, text: "Tweet 3 from Elon Musk" },
+      ],
+    },
     { id: 2, name: "Francine Rivers", img: "../images/francine_rivers.jpg" },
     { id: 3, name: "Julia Roberts", img: "../images/julia_roberts.jpg" },
     { id: 4, name: "Quizscape", img: "../images/quizscape.jpg" },
@@ -23,13 +32,18 @@ function RandomTweet({ users }) {
     },
   ];
 
+  // const getRandomTweet = (user) => {
+  //   const randomIndex = Math.floor(Math.random() * user.tweets.length);
+  //   return user.tweets[randomIndex];
+  // };
+
   useEffect(() => {
     if (!isLoaded.current && selectedUser) {
       axios
-        .get(`/api/faveUser?screen_name=${selectedUser.name}`)
+        .get(`/api/faveUser?faveUser=${selectedUser.name}`)
         .then((data) => {
           setFaveUsers(data.data);
-          // console.log(data.data);
+          console.log(data.data);
         })
         .catch((error) => {
           console.error("Error fetching tweets:", error);
@@ -40,7 +54,7 @@ function RandomTweet({ users }) {
 
   function handleImageOnClick(e) {
     const selectedUserName = e.target.alt;
-    const selectedUserObject = faveUserImages.find(
+    const selectedUserObject = imagesObj.find(
       (user) => user.name === selectedUserName
     );
     setSelectedUser(selectedUserObject);
@@ -53,7 +67,7 @@ function RandomTweet({ users }) {
       <RandomNavBar />
       <div className="avatar-container">
         <div className="fave-avatar">
-          {faveUserImages.map((user) => (
+          {imagesObj.map((user) => (
             <div key={user.id}>
               <img
                 className="avatar"
@@ -66,8 +80,8 @@ function RandomTweet({ users }) {
           ))}
         </div>
       </div>
-      <UserTweetCard />
-      <Card users={users} faveUsers={faveUsers} />
+
+      <Card users={users} />
     </div>
   );
 }
