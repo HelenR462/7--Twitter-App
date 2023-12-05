@@ -2,7 +2,7 @@ import React from "react";
 import "../UserTweet/FaveTweets.css";
 import Footer from "../../Footer";
 
-function FaveTweets({ users }) {
+function FaveTweets({ faveUsers }) {
   return (
     <div className="input-tweets-container">
       <img
@@ -11,8 +11,8 @@ function FaveTweets({ users }) {
         alt=""
       />
 
-      {Array.isArray(users) && users.length > 0 ? (
-        users.map((user) => (
+      {Array.isArray(faveUsers) && faveUsers.length > 0 ? (
+        faveUsers.map((user) => (
           <div className="card" key={user.id}>
             <h4>{user.name}</h4>
             <h5>{user.screen_name}</h5>
@@ -21,7 +21,7 @@ function FaveTweets({ users }) {
           </div>
         ))
       ) : (
-        <p>No data available (FaveTweets)</p>
+        <p>No tweets available(FaveTweets)</p>
       )}
 
       <hr></hr>

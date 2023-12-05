@@ -22,7 +22,7 @@
   margin-bottom:2px;
   margin-left: 40px;
   padding: 2px 35px;
-  border: 1px solid rgb(234, 237, 240);
+  border: 1px solid rgb(0, 179, 255);
   box-shadow: .5px 1px 0 .5px rgb(0, 179, 255);
   border-radius: 12px;
   background-color: rgb(0, 179, 255); 
@@ -38,7 +38,7 @@
  font-size: x-large;
  margin-bottom:2px;
  margin-left: 180px;
- border: 1px solid rgb(234, 237, 240);
+ border: 1px solid rgb(0, 179, 255);
  box-shadow: .5px 1px 0 .5px rgb(0, 179, 255);
  border-radius: 12px;
  background-color: rgb(0, 179, 255); 
@@ -53,7 +53,7 @@
    font-size: x-large;
    padding: 2px 20px;
      margin-left: 320px;
-   border: 1px solid  rgb(233, 236, 239);
+   border: 1px solid  rgb(0, 179, 255);
    box-shadow: .5px 1px 0 .5px  rgb(0, 179, 255);
    border-radius: 12px;
    background-color:rgb(0, 179, 255) ; 
@@ -105,7 +105,3 @@ a{
   border-radius:0 5px 5px 0;
  
 }
-
-.submit:hover{
- background-color:rgb(3, 148, 210);
-}  

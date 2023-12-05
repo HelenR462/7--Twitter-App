@@ -16,10 +16,12 @@ app.get("/api", (req, res) => {
 console.log(process.env.TOKEN);
 
 app.get("/api/faveUser", async (req, res) => {
-  const { screen_name } = req.query;
+  const { faveUser } = req.query;
 
-  if (!screen_name) {
-    return res.status(400).json({ error: "Screen name is required." });
+  console.log("faveUser:", faveUser);
+
+  if (!faveUser) {
+    return res.status(400).json({ error: "Missing faveUser parameter" });
   }
 
   const config = {
@@ -28,7 +30,7 @@ app.get("/api/faveUser", async (req, res) => {
 
   axios
     .get(
-      `https://api.twitter.com/2/tweets/search/recent?query=${screen_name}`,
+      `https://api.twitter.com/2/tweets?tweet.fields=${faveUser},tweet_id,text,created_at`,
       config
     )
     .then(function (response) {
@@ -36,17 +38,19 @@ app.get("/api/faveUser", async (req, res) => {
       res.send(response.data);
     })
     .catch(function (err) {
-      console.log(err);
+      if (err.response) {
+        console.error("Error response from Twitter API:", err.response.data);
+        console.error("Status code:", err.response.status);
+      } else if (err.request) {
+        console.error("No response received from Twitter API");
+      } else {
+        console.error("Error setting up the request:", err.message);
+      }
       res
         .status(500)
         .json({ error: "Error fetching tweets from Twitter API." });
     });
 });
-
-// app.post("/api/faveUser", (req, res) => {
-//   data.push(req.body);
-//   res.json(data);
-// });
 
 app.get("/api/randomUser", (req, res) => {
   const { query } = req.query;
@@ -61,9 +65,18 @@ app.get("/api/randomUser", (req, res) => {
     },
   };
 
+  //when searching by username and content,add conditionl argg-==>
+  // random recent 7 days,
+  // existing 10 days,
+  // doesnt exist, show message of "user not found"
+
+  // tweet search username(tweet_fields/user_fields)
+  // add text (works)
+  // add image
+  //  add date(optional)
   axios
     .get(
-      `https://api.twitter.com/2/tweets/search/recent?query=${query}`,
+      `https://api.twitter.com/2/tweets?q=${search}&tweet.fields=created_at`,
       config
     )
     .then(function (response) {
@@ -79,30 +92,33 @@ app.get("/api/randomUser", (req, res) => {
     });
 });
 
-app.post("/api/randomUser", (req, res) => {
-  const { name, content } = req.body;
+// fave user random tweet fetch by tweetId
 
-  if (name && content) {
-    const randomUser = { name, content };
-    users.push(randomUser);
-    res.json(randomUser);
-  } else {
-    res.status(400).json({ error: "Name and content are required" });
-  }
-});
+// app.get("/api/faveUser", (req, res) => {
+// const { query } = req.query;
 
-// app.get("/api/searchRandomUsers", (req, res) => {
-//   const { query } = req.query; // Assuming the query parameter contains the search term
+// if (!query) {
+//   return res.status(400).json({ error: "Missing query parameter" });
+// }
 
-//   if (!query) {
-//     return res.status(400).json({ error: "Search query is required" });
-//   }
-
-//   const results = users.filter((user) => {
-//     return user.name.includes(query) || user.content.includes(query);
-//   });
-
-//   res.json(results);
+//   const config = {
+//     headers: {
+//       Authorization: `Bearer ${process.env.TOKEN}`,
+//     },
+//   };
+//   axios
+//     .get(`https://api.twitter.com/2/tweets/search/recent?query=${ID}`, {
+//       params: {
+//         ID: 12345,
+//       //  const randomTweets = Math.floor(Math.random())
+//       },
+//     })
+//     .then(function (response) {
+//       console.log(response);
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
 // });
 
 app.listen(port, () => {

@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./UserTweet.css";
 import UserTweetNav from "./UserTweetNav";
-import FaveTweets from "./FaveTweets";
 
 function UserTweet() {
   const [users, setUsers] = useState([]);
@@ -11,7 +10,9 @@ function UserTweet() {
 
   useEffect(() => {
     if (isLoaded.current === false) {
-      fetch("/api/faveUser")
+      const username = users.name;
+
+      fetch(`/api/faveUser?faveUser=${username}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("data: ", data);
@@ -24,7 +25,6 @@ function UserTweet() {
   return (
     <div>
       <UserTweetNav users={users} />
-      <FaveTweets users={users} />
     </div>
   );
 }
