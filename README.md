@@ -1,1 +1,1 @@
-# Full Stack Node/React Project.
+# Full Stack React/Node.js Project.
