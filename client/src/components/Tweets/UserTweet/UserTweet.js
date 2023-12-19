@@ -3,22 +3,23 @@ import { useState, useEffect, useRef } from "react";
 import "./UserTweet.css";
 import UserTweetNav from "./UserTweetNav";
 
-function UserTweet() {
-  const [users, setUsers] = useState([]);
+function UserTweet(imageObj) {
+  const [users, setUsers] = useState(null);
 
   const isLoaded = useRef(false);
 
   useEffect(() => {
     if (isLoaded.current === false) {
-      const username = users.name;
-
-      fetch(`/api/faveUser?faveUser=${username}`)
+      fetch(`/api/faveUser?faveUserId=${imageObj.id}`)
         .then((res) => res.json())
         .then((data) => {
           console.log("data: ", data);
-          setUsers(data.data);
+          setUsers(data);
+          isLoaded.current = true;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
         });
-      isLoaded.current = true;
     }
   }, []);
 

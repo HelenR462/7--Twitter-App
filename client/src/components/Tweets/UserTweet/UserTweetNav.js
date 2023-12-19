@@ -2,14 +2,14 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
-import Card from "../../Card/Card";
 
 function UserTweetNav() {
   // const [showData, setShowData] = useState(false);
   const [search, setSearch] = useState("");
   const [usersData, setUsersData] = useState([]);
-  const [userNotFound, setUserNotFound] = useState(false);
+  const [userNotFound, setUserNotFound] = useState("");
   const [loading, setLoading] = useState(false);
+
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
@@ -17,18 +17,12 @@ function UserTweetNav() {
       try {
         setLoading(true);
 
-        const res = await axios.get(`/api/randomUser?query=${search}`);
-        const fetchUsersData = res.data.data;
-
-        if (fetchUsersData.length === 0) {
-          setUsersData(`No user found for{search}`);
-        } else {
-          setUsersData(fetchUsersData);
-        }
-
-        setUserNotFound(fetchUsersData.length === 0);
+        const res = await axios.get(`/api/randomUser?search=${search}`);
+        setUsersData(res.data.data);
+        setUserNotFound("");
       } catch (error) {
-        console.error("Error fetching data:", error);
+        setUsersData([]);
+        setUserNotFound("No User Was Found");
       } finally {
         setLoading(false);
       }
@@ -68,10 +62,16 @@ function UserTweetNav() {
                 type="submit"
                 disabled={loading}
               >
-                {loading ? "Searching..." : "Search"}
+                {/* {loading ? "Searching..." : "Search"} */} Search
               </button>
             </form>
-            <Card faveUsers={usersData} userNotFound={userNotFound} />
+            <div>
+              <ul>
+                {usersData.map((tweet) => (
+                  <li key={tweet.id}>{tweet.text}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
