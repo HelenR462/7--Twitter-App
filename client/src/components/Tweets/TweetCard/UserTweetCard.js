@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./UserTweetCard.css";
 // import Card from "../../Card/Card";
 
 function UserTweetCard({ user, search }) {
-  const [usersData, setUsersData] = useState([]);
-  const [userNotFound, setUserNotFound] = useState(false);
+  // const [usersData, setUsersData] = useState([]);
+  // const [userNotFound, setUserNotFound] = useState(false);
 
   return (
     <div className="container">
@@ -24,7 +24,7 @@ function UserTweetCard({ user, search }) {
 
       {/* <Card user={user} /> */}
 
-      {userNotFound && (
+      {/* {userNotFound && (
         <div className="no-results-message">No user found for "{search}".</div>
       )}
       {usersData.length > 0 && (
@@ -38,7 +38,7 @@ function UserTweetCard({ user, search }) {
             </div>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 }
