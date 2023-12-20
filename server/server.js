@@ -32,14 +32,14 @@ app.get("/api/faveUser", async (req, res) => {
     };
 
     const response = await axios.get(
-      `https://api.twitter.com/2/users?id=${faveUserId}/tweets?tweet_fields=id`,
+      `https://api.twitter.com/2/users/${faveUserId}/tweets`,
       config
     );
     console.log(response.data);
     const tweet = response.data.data;
     res.json({ faveUserId, tweet });
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("Error:", error);
     res.status(500).json({ error: "Error fetching tweets from Twitter API." });
   }
 });
