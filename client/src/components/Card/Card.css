@@ -3,7 +3,7 @@
   flex-direction: column;
   background-color: #f9f9f9;
   font-family: Arial, Helvetica, sans-serif;
-  max-width:420px;
+  max-width:400px;
   height:auto;
   border-radius: 8px; 
   
@@ -17,21 +17,36 @@
   margin-top:10px;   
   margin-left: 10px;
 }
-/* 
-.card-items{
-  padding:5px;
-  border-radius: 20px;
+
+
+li{
+  color:rgb(75, 73, 73);
+  max-width:450px;
+  height:auto;
+  align-items: center;
+  display: flex;
+  justify-items: center;
+  margin-left: 450px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding-bottom: 1px;
+  padding:15px;
+  border-radius: 7px;
   font-size: medium;
   list-style: none;
- 
-}
-*/
-li{
-  color:rgb(250, 245, 245);
-  margin-left:10px;
-  margin-bottom: 10px;
-  padding-bottom: 15px;
   border-bottom: 2px solid rgb(202, 201, 201);
-  
+  text-decoration: none;
+  background-color: #f9f9f9;
 }
   
+h4{
+  margin-top:-35px;
+  margin-left:65px;
+  color:rgb(122, 121, 121)
+}
+
+h5{
+  margin-top:-35px;
+  margin-left:75px;
+  color:rgb(122, 121, 121)
+}

@@ -1,4 +1,5 @@
-import React, {useState}from 'react';
+import React, { useState } from "react";
+// import Card from "./Card/Card";
 
 function Footer() {
   const [likesCounter, setLikesCounter] = useState(0);
@@ -9,36 +10,36 @@ function Footer() {
 
   return (
     <div>
-       <div className="card-footer">
-             
-             <div className="icons">
-               <div className="horizontal-line">
-                 <img
-                   src={retweet}
-                   alt="retweet"
-                   className="icon-retweet"
-                   onClick={() => {
-                     setRetweetCounter((prev) => prev + 1);
-                   }}
-                 />
-                 <div className="counts">{retweetCounter}</div>
-               </div>
-               <div>
-                 <img
-                   className="icon-heart"
-                   src={likes}
-                   alt="heart"
-                   onClick={() => {
-                     setLikesCounter((prev) => prev + 1);
-                   }}
-                 />
-                 <div className="counts">{likesCounter}</div>
-               </div>
-             </div>
-           </div>
+      {/* <Card />
+      <hr></hr> */}
+      <div className="card-footer">
+        <div className="icons">
+          <div className="horizontal-line">
+            <img
+              src={retweet}
+              alt="retweet"
+              className="icon-retweet"
+              onClick={() => {
+                setRetweetCounter((prev) => prev + 1);
+              }}
+            />
+            <div className="counts">{retweetCounter}</div>
+          </div>
+          <div>
+            <img
+              className="icon-heart"
+              src={likes}
+              alt="heart"
+              onClick={() => {
+                setLikesCounter((prev) => prev + 1);
+              }}
+            />
+            <div className="counts">{likesCounter}</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default Footer;
-

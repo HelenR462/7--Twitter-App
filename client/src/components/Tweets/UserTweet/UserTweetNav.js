@@ -18,11 +18,18 @@ function UserTweetNav() {
         setLoading(true);
 
         const res = await axios.get(`/api/randomUser?search=${search}`);
-        setUsersData(res.data.data);
-        setUserNotFound("");
+        console.log("res.data.: ", res.data);
+        if (res.data.count === 0) {
+          setUsersData(null);
+          setUserNotFound("Twitter user not found");
+        } else {
+          setUsersData(res.data);
+          setUserNotFound(null);
+        }
       } catch (error) {
-        setUsersData([]);
-        setUserNotFound("No User Was Found");
+        console.error("Error searching:", error);
+        setUsersData(null);
+        setUserNotFound("Internal Server Error ");
       } finally {
         setLoading(false);
       }
@@ -66,11 +73,13 @@ function UserTweetNav() {
               </button>
             </form>
             <div>
-              <ul>
-                {usersData.map((tweet) => (
-                  <li key={tweet.id}>{tweet.text}</li>
-                ))}
-              </ul>
+              {usersData.map((tweet) => (
+                <p key={tweet.id}>
+                  {tweet.img}
+                  {tweet.name}
+                  {tweet.text}
+                </p>
+              ))}
             </div>
           </div>
         </div>
