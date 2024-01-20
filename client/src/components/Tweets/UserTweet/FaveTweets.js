@@ -2,7 +2,7 @@ import React from "react";
 import "../UserTweet/FaveTweets.css";
 import Footer from "../../Footer";
 
-function FaveTweets({ faveUsers }) {
+function FaveTweets({ faveUsers, randomTweets}) {
   return (
     <div className="input-tweets-container">
       <img
@@ -21,7 +21,7 @@ function FaveTweets({ faveUsers }) {
           </div>
         ))
       ) : (
-        <p>No tweets available(FaveTweets)</p>
+        <p>{randomTweets}</p>
       )}
 
       <hr></hr>

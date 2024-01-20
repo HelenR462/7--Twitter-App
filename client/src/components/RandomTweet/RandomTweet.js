@@ -4,10 +4,10 @@ import "./RandomTweet.css";
 import RandomNavBar from "../RandomTweet/RandomNavBar";
 import Card from "../Card/Card";
 
-function RandomTweet({ users }) {
+function RandomTweet() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [faveUsers, setFaveUsers] = useState([]);
-  // const [randomTweet, setRandomTweet] = useState(null);
+  const [randomTweet, setRandomTweet] = useState(null);
 
   const isLoaded = useRef(false);
 
@@ -16,11 +16,7 @@ function RandomTweet({ users }) {
       id: 44196397,
       name: "Elon Musk",
       img: "../images/Elon_Musk.jpg",
-      tweet: [
-        { id: 1, text: "hello" },
-        { id: 2, text: "howdy" },
-        { id: 3, text: "hi" },
-      ],
+      tweet: [],
     },
     {
       id: 124212346,
@@ -53,16 +49,19 @@ function RandomTweet({ users }) {
       !isLoaded.current &&
       selectedUser &&
       selectedUser.name &&
-      selectedUser.id !== undefined
+      selectedUser.id !== undefined &&
+      Array.isArray(selectedUser.tweet) &&
+      selectedUser.tweet.length > 0 &&
+      selectedUser.tweet[0].id !== undefined
     ) {
       console.log("useEffect Ran: ", selectedUser);
       axios
         .get(
-          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}`
+          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUserTweet=${selectedUser.tweet[0].id}`
         )
         .then((data) => {
-          setFaveUsers(data.data[0]);
-          console.log(data.data);
+          setFaveUsers(data[0]);
+          console.log("data:", data);
         })
         .catch((error) => {
           console.error("Error fetching tweets:", error);
@@ -78,7 +77,31 @@ function RandomTweet({ users }) {
     );
     setSelectedUser(selectedUserObject);
     isLoaded.current = false;
-    console.log("SelectedUser:", selectedUserObject);
+    // console.log("SelectedUser:", selectedUserObject);
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `/api/randomUser?search=${selectedUserId}`
+        );
+        console.log("API Response:", response.data);
+        // console.log("randomTweet: ", response.data);
+        const tweetsArray = response.data;
+
+        if (response.data.length > 0) {
+          const randomTweetIndex = Math.floor(
+            Math.random() * response.data.length
+          );
+
+          setRandomTweet(response.data[randomTweetIndex]);
+        } else {
+          setRandomTweet(null);
+        }
+      } catch (error) {
+        console.error("Error fetching random tweet:", error);
+      }
+    };
+    fetchData();
   }
 
   return (
@@ -101,7 +124,7 @@ function RandomTweet({ users }) {
         </div>
       </div>
 
-      <Card users={users} />
+      <Card selectedUser={selectedUser} randomTweet={randomTweet} />
     </div>
   );
 }

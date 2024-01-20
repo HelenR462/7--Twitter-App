@@ -2,7 +2,7 @@ import React from "react";
 import "./Card.css";
 import Footer from "../Footer";
 
-function Card({ faveUsers, usersData, userNotFound }) {
+function Card({ selectedUser, randomTweet }) {
   return (
     <div className="card-container">
       <img
@@ -10,25 +10,22 @@ function Card({ faveUsers, usersData, userNotFound }) {
         src="./images/icons8-user-avatar-50.png"
         alt=""
       />
-      {/* {userNotFound && <p>{userNotFound}</p>} */}
-      {/* {Array.isArray(faveUsers) &&
-        usersData.length > 0 && */}
-      {/* <div>
-        {faveUsers.map((user) => (
-          <div className="Card_content">
-            <h4>{user.name}</h4>
-            <h5>{user.screen_name}</h5>
-            <p>{user.created_at}</p>
+      {selectedUser && (
+        <div>
+          <h4>{selectedUser.name}</h4>
 
-            <ul>
-              {usersData.map((tweet) => (
-                <li key={tweet.id}>{tweet.text}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div> */}
-      <hr></hr>
+          {/* <h5>{selectedUser.screen_name}</h5> */}
+          
+
+          {randomTweet && (
+            <div className="tweet-container">
+              <p>{randomTweet.created_at}</p>
+           <p>{randomTweet.text}</p>
+            </div>
+          )}
+        </div>
+      )}
+
       <Footer />
     </div>
   );

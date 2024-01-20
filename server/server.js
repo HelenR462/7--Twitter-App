@@ -17,13 +17,13 @@ console.log(process.env.TOKEN);
 
 app.get("/api/faveUser", async (req, res) => {
   try {
-    const { faveUser, faveUserId, faveUserTweet } = req.query;
+    const { faveUser, faveUserId, randomTweetIndex } = req.query;
 
     console.log("faveUser:", faveUser);
     console.log("faveUserId:", faveUserId);
-    console.log("faveUserTweet:", faveUserTweet);
+    console.log("randomTweetIndex:", randomTweetIndex);
 
-    if (!faveUser && !faveUserId && !faveUserTweet) {
+    if (!faveUser && !faveUserId && !randomTweetIndex) {
       return res.status(400).json({ error: "Missing faveUserId prameter" });
     }
 
@@ -36,7 +36,7 @@ app.get("/api/faveUser", async (req, res) => {
       config
     );
     console.log(response.data);
-    const tweet = response.data.data;
+    const tweet = response.data;
     res.json({ faveUserId, tweet });
   } catch (error) {
     console.error("Error:", error);
@@ -74,7 +74,7 @@ app.get("/api/randomUser", (req, res) => {
     )
     .then(function (response) {
       console.log(response.data);
-      res.send(response.data);
+      res.send(response.data.data);
       console.log("search:", search);
     })
     .catch(function (err) {
