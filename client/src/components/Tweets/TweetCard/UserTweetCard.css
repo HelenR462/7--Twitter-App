@@ -27,9 +27,8 @@
 .card-footer .icons{
     display:flex;
     align-items: center;
-     margin:0 100px;
-    margin-bottom: 15px;
-    justify-content: space-between; 
+     margin-left:5px;
+    justify-content:center; 
     
    
 }  

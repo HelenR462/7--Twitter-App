@@ -8,6 +8,7 @@ function RandomTweet() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [faveUsers, setFaveUsers] = useState([]);
   const [randomTweet, setRandomTweet] = useState(null);
+  const [randomTweetIndex, setRandomTweetIndex] = useState();
 
   const isLoaded = useRef(false);
 
@@ -52,15 +53,15 @@ function RandomTweet() {
       selectedUser.id !== undefined &&
       Array.isArray(selectedUser.tweet) &&
       selectedUser.tweet.length > 0 &&
-      selectedUser.tweet[0].id !== undefined
+      selectedUser.id !== undefined
     ) {
       console.log("useEffect Ran: ", selectedUser);
       axios
         .get(
-          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUserTweet=${selectedUser.tweet[0].id}`
+          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUserTweet=${selectedUser.tweet}&randomTweetIndex=${randomTweetIndex}`
         )
         .then((data) => {
-          setFaveUsers(data[0]);
+          setFaveUsers(data[randomTweetIndex]);
           console.log("data:", data);
         })
         .catch((error) => {

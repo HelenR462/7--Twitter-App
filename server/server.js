@@ -32,7 +32,7 @@ app.get("/api/faveUser", async (req, res) => {
     };
 
     const response = await axios.get(
-      `https://api.twitter.com/2/users/${faveUserId}/tweets`,
+      `https://api.twitter.com/2/users/${faveUserId}/tweets?user.fields=username&tweet.fields=created_at,text`,
       config
     );
     console.log(response.data);
