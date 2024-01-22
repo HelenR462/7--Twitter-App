@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
+import Footer from "../../Footer";
 
 function UserTweetNav() {
   // const [showData, setShowData] = useState(false);
   const [search, setSearch] = useState("");
   const [usersData, setUsersData] = useState([]);
-  const [userNotFound, setUserNotFound] = useState("");
+  const [userNotFound, setUserNotFound] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleOnSubmit = async (e) => {
@@ -20,16 +21,16 @@ function UserTweetNav() {
         const res = await axios.get(`/api/randomUser?search=${search}`);
         console.log("res.data.: ", res.data);
         if (res.data.count === 0) {
-          setUsersData(null);
-          setUserNotFound("Twitter user not found");
+          setUsersData([]);
+          setUserNotFound(true);
         } else {
           setUsersData(res.data);
-          setUserNotFound(null);
+          setUserNotFound(false);
         }
       } catch (error) {
         console.error("Error searching:", error);
-        setUsersData(null);
-        setUserNotFound("Internal Server Error ");
+        setUsersData([]);
+        setUserNotFound(true);
       } finally {
         setLoading(false);
       }
@@ -69,17 +70,20 @@ function UserTweetNav() {
                 type="submit"
                 disabled={loading}
               >
-                {/* {loading ? "Searching..." : "Search"} */} Search
+                Search
               </button>
             </form>
             <div>
-              {usersData.map((tweet) => (
-                <p key={tweet.id}>
-                  {tweet.img}
-                  {tweet.name}
-                  {tweet.text}
-                </p>
-              ))}
+              <ul>
+                {usersData.map((tweet) => (
+                  <li key={tweet.id}>
+                    {/* {tweet.img} */}
+                    {tweet.name}
+                    {tweet.created_at}
+                    {tweet.text}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
