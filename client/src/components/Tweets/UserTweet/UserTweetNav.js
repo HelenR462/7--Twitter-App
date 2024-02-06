@@ -3,9 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
 import Footer from "../../Footer";
+import FaveTweets from "./FaveTweets";
 
 function UserTweetNav() {
-  // const [showData, setShowData] = useState(false);
   const [search, setSearch] = useState("");
   const [usersData, setUsersData] = useState([]);
   const [userNotFound, setUserNotFound] = useState(false);
@@ -19,13 +19,14 @@ function UserTweetNav() {
         setLoading(true);
 
         const res = await axios.get(`/api/randomUser?search=${search}`);
-        console.log("res.data.: ", res.data);
-        if (res.data.count === 0) {
-          setUsersData([]);
-          setUserNotFound(true);
-        } else {
+        console.log("res.data: ", res.data);
+
+        if (Array.isArray(res.data)) {
           setUsersData(res.data);
           setUserNotFound(false);
+        } else {
+          setUsersData([]);
+          setUserNotFound("User not found");
         }
       } catch (error) {
         console.error("Error searching:", error);
@@ -73,16 +74,20 @@ function UserTweetNav() {
                 Search
               </button>
             </form>
-            <div>
+            <div className="card-message">
               <ul>
-                {usersData.map((tweet) => (
-                  <li key={tweet.id}>
-                    {/* {tweet.img} */}
-                    {tweet.name}
-                    {tweet.created_at}
-                    {tweet.text}
-                  </li>
-                ))}
+                {usersData.length > 0 ? (
+                  usersData.map((tweet) => (
+                    <li key={tweet.id}>
+                      {/* {tweet.img} */}
+                      {tweet.name}
+                      {tweet.created_at}
+                      {tweet.text}
+                    </li>
+                  ))
+                ) : (
+                  <li>{userNotFound}</li>
+                )}
               </ul>
             </div>
           </div>
