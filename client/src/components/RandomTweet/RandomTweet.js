@@ -10,6 +10,8 @@ function RandomTweet() {
   const [randomTweet, setRandomTweet] = useState([]);
   const [randomTweetIndex, setRandomTweetIndex] = useState();
 
+console.log("randomTweetIndex:",randomTweetIndex)
+
   const isLoaded = useRef(false);
 
   const imageObj = [
@@ -125,7 +127,7 @@ function RandomTweet() {
         </div>
       </div>
 
-      <Card selectedUser={selectedUser} randomTweet={randomTweet} />
+      <Card selectedUser={selectedUser} randomTweet={randomTweet} imgSrc={selectedUser ? selectedUser.img : ""}/>
     </div>
   );
 }
