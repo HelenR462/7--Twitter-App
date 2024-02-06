@@ -79,4 +79,38 @@
 }
 */
 
- 
+/* .card-message{
+  
+  max-width:450px;
+  height:auto;
+  align-items: center;
+  display: flex;
+  justify-items: center;
+  margin-left: 450px;
+  background-color: #f9f9f9;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding-bottom: 1px;
+  padding:15px;
+  border-radius: 7px;
+  border-bottom: 2px solid rgb(202, 201, 201);
+} */
+
+ /* .card-message{
+  max-width:450px;
+  height:auto;
+  color:rgb(75, 73, 73);
+  font-size: large;
+  font-weight: 400;
+   text-align: center;
+   margin-left: 650px;
+  padding-left: 18%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding-bottom: 1px;
+  padding:15px;
+  background-color: #f9f9f9;
+  border-radius: 7px;
+  border-bottom: 2px solid rgb(202, 201, 201);
+  
+ }  */

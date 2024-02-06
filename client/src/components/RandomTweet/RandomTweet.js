@@ -5,9 +5,9 @@ import RandomNavBar from "../RandomTweet/RandomNavBar";
 import Card from "../Card/Card";
 
 function RandomTweet() {
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [faveUsers, setFaveUsers] = useState([]);
-  const [randomTweet, setRandomTweet] = useState(null);
+  const [selectedUser, setSelectedUser] = useState();
+  const [faveUser, setFaveUser] = useState([]);
+  const [randomTweet, setRandomTweet] = useState([]);
   const [randomTweetIndex, setRandomTweetIndex] = useState();
 
   const isLoaded = useRef(false);
@@ -50,18 +50,20 @@ function RandomTweet() {
       !isLoaded.current &&
       selectedUser &&
       selectedUser.name &&
-      selectedUser.id !== undefined &&
+      selectedUser.id !== undefined 
+      &&
       Array.isArray(selectedUser.tweet) &&
       selectedUser.tweet.length > 0 &&
       selectedUser.id !== undefined
-    ) {
+    ) 
+    {
       console.log("useEffect Ran: ", selectedUser);
       axios
         .get(
-          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUserTweet=${selectedUser.tweet}&randomTweetIndex=${randomTweetIndex}`
+          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUser=${selectedUser.tweet}&randomTweetIndex=${randomTweetIndex}`
         )
         .then((data) => {
-          setFaveUsers(data[randomTweetIndex]);
+          setFaveUser(data.data.tweet); 
           console.log("data:", data);
         })
         .catch((error) => {
@@ -83,25 +85,22 @@ function RandomTweet() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `/api/randomUser?search=${selectedUserId}`
+          `/api/faveUser?faveUserId=${selectedUserId}`
         );
-        console.log("API Response:", response.data);
-        // console.log("randomTweet: ", response.data);
-        const tweetsArray = response.data;
 
-        if (response.data.length > 0) {
-          const randomTweetIndex = Math.floor(
-            Math.random() * response.data.length
-          );
+         console.log("randomTweet: ", response.data.tweet);
 
-          setRandomTweet(response.data[randomTweetIndex]);
-        } else {
-          setRandomTweet(null);
+        if (response.data.tweet.length > 0) {
+          setRandomTweetIndex(Math.floor(
+            Math.random() * response.data.tweet.length
+          ));
         }
+        setRandomTweet(response.data.tweet[randomTweetIndex]);
       } catch (error) {
         console.error("Error fetching random tweet:", error);
       }
     };
+
     fetchData();
   }
 
@@ -120,6 +119,7 @@ function RandomTweet() {
                 onClick={handleImageOnClick}
               />
               <p className="avatar-userName">{user.name}</p>
+              <h5>{user.text}</h5>
             </div>
           ))}
         </div>

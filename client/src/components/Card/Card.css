@@ -34,9 +34,9 @@ li{
   border-radius: 7px;
   font-size: medium;
   list-style: none;
-  border-bottom: 2px solid rgb(202, 201, 201);
   text-decoration: none;
   background-color: #f9f9f9;
+  
 }
   
 h4{
@@ -48,5 +48,5 @@ h4{
 h5{
   margin-top:-35px;
   margin-left:75px;
-  color:rgb(122, 121, 121)
+  color:rgb(213, 231, 76)
 }
