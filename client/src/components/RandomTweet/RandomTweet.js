@@ -76,6 +76,8 @@ console.log("randomTweetIndex:",randomTweetIndex)
   }, [selectedUser]);
 
   function handleImageOnClick(e) {
+    e.preventDefault();
+
     const selectedUserId = parseInt(e.target.id, 10);
     const selectedUserObject = imageObj.find(
       (user) => user.id === selectedUserId
@@ -127,7 +129,7 @@ console.log("randomTweetIndex:",randomTweetIndex)
         </div>
       </div>
 
-      <Card selectedUser={selectedUser} randomTweet={randomTweet} imgSrc={selectedUser ? selectedUser.img : ""}/>
+      <Card selectedUser={selectedUser} randomTweet={randomTweet} imgSrc={selectedUser ? selectedUser.img : ""} />
     </div>
   );
 }

@@ -32,7 +32,7 @@ app.get("/api/faveUser", async (req, res) => {
 
   try {
     const response = await axios.get(
-      `https://api.twitter.com/2/users/${faveUserId}/tweets?user.fields=username&tweet.fields=created_at,text`,
+      `https://api.twitter.com/2/users/${faveUserId}/tweets?user.fields=username&tweet.fields=created_at,text&exclude=retweets,replies`,
       config
     );
     console.log(response.data);
@@ -57,36 +57,45 @@ app.get("/api/randomUser", async (req, res) => {
     },
   };
 
-  //when searching by username and content,add conditionl argg-==>
-  // random recent 7 days,
-  // const randomTweets = Math.floor(Math.random())
-  // existing 10 days,
-  // doesnt exist, show message of "user not found"
-
-  // tweet search username(tweet_fields/user_fields)
-  // add text (works)
-  // add image
-  //  add date(optional)
-
-  axios
-    .get(
-      `https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at`,
+  try {
+    const response = await axios.get(
+      `https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,author_id&user.fields=profile_image_url&expansions=attachments.media_keys`,
       config
-    )
-    .then(function (response) {
-      console.log(response.data);
-      res.send(response.data.data);
-      console.log("search:", search);
-    })
-    .catch(function (err) {
-      console.error(
-        "Error from Twitter API:",
-        err.response?.data || err.message
-      );
-      res.status(500).json({ error: "Twitter API request failed" });
-    });
+    );
+
+    const tweets = response.data.data;
+    // console.log("tweet.user.img:", tweets.user.img);
+    // Fetch user details for each tweet
+    const tweetUserData = await Promise.all(
+      tweets.map(async (tweet) => {
+        const userResponse = await axios.get(
+          `https://api.twitter.com/2/users/${tweet.author_id}`,
+          config
+        );
+        const userData = userResponse.data.data;
+        return {
+          ...tweet,
+          user: {
+            name: userData.name,
+            img: userData.profile_image_url,
+          },
+        };
+      })
+    );
+
+    res.json(tweetUserData);
+  } catch (err) {
+    console.error("Error from Twitter API:", err.response?.data || err.message);
+    res.status(500).json({ error: "Twitter API request failed" });
+  }
 });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+// .then(function (response) {
+//   console.log(response.data);
+//   res.json(response.data.data);
+//   console.log("search:", search);
+// })

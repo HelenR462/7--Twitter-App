@@ -79,22 +79,6 @@
 }
 */
 
-/* .card-message{
-  
-  max-width:450px;
-  height:auto;
-  align-items: center;
-  display: flex;
-  justify-items: center;
-  margin-left: 450px;
-  background-color: #f9f9f9;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding-bottom: 1px;
-  padding:15px;
-  border-radius: 7px;
-  border-bottom: 2px solid rgb(202, 201, 201);
-} */
 
  /* .card-message{
   max-width:450px;
@@ -114,3 +98,65 @@
   border-bottom: 2px solid rgb(202, 201, 201);
   
  }  */
+
+
+ 
+
+ li{
+  color:rgb(75, 73, 73);
+  max-width:450px;
+  height:auto;
+  align-items: center;
+  display: inline-block;
+  justify-items: center;
+  margin-left: 450px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding-bottom: 1px;
+  padding:15px;
+  border-radius: 7px;
+  font-size: medium;
+  list-style: none;
+  text-decoration: none;
+  background-color: #f9f9f9;
+  
+}
+
+.test-avatar{
+  background-color: aqua;
+  width: 50px;
+  height:50px;
+  border-radius: 50%; 
+  margin-bottom:20px;
+  margin-top:10px;   
+  margin-left: 10px;
+}
+
+
+.randomImg{
+ background-color: aqua;
+  width: 50px;
+  height:50px;
+  border-radius: 50%; 
+  margin-bottom:20px;
+  margin-top:10px;   
+  margin-left: 10px;
+ }
+
+h5{
+  display: inline-flex;
+  font-size: medium;
+  margin-top:3px;
+  margin-left:35px;
+  color:rgb(93, 81, 81)
+ 
+}
+
+.tweetTime{
+  display: inline-block;
+  margin-bottom:3px;
+}
+.tweetContent{
+  margin-top: 3px;
+  margin-left: 35px;
+}
