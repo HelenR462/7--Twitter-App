@@ -21,14 +21,14 @@ function Card({ selectedUser, randomTweet, imgSrc }) {
       <img className="card-avatar-img" src={imgSrc} alt="" />
       {selectedUser && (
         <div>
-          <h4>{selectedUser.name}</h4>
+          <h4 className="userName">{selectedUser.name}</h4>
 
-          {/* <h5>{selectedUser.screen_name}</h5> */}
+          {/* <h5>{selectedUser.name}</h5> */}
 
           {randomTweet && (
             <div className="tweet-container">
-              <p>{formatDate(randomTweet.created_at)}</p>
-              <p>{randomTweet.text}</p>
+              <p className="tweet_time">{formatDate(randomTweet.created_at)}</p>
+              <p className="tweet_text">{randomTweet.text}</p>
             </div>
           )}
         </div>

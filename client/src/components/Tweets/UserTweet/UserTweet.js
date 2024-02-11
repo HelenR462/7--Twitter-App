@@ -6,7 +6,7 @@ import UserTweetNav from "./UserTweetNav";
 function UserTweet() {
   const [users, setUsers] = useState(null);
   const [faveUserId, setFaveUserId] = useState(null);
-  const [tweets, setTweets] = useState("");
+  // const [tweets, setTweets] = useState("");
 
   const isLoaded = useRef(false);
 

@@ -3,7 +3,20 @@ import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
 import Footer from "../../Footer";
-import FaveTweets from "./FaveTweets";
+// import FaveTweets from "./FaveTweets";
+
+function formatDate(timestamp) {
+  const date = new Date(timestamp);
+  const options = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+  return date.toLocaleString("en-US", options);
+}
 
 function UserTweetNav() {
   const [search, setSearch] = useState("");
@@ -74,15 +87,31 @@ function UserTweetNav() {
                 Search
               </button>
             </form>
+
             <div className="card-message">
               <ul>
                 {usersData.length > 0 ? (
                   usersData.map((tweet) => (
                     <li key={tweet.id}>
-                      {/* {tweet.img} */}
-                      {tweet.name}
-                      {tweet.created_at}
-                      {tweet.text}
+                      {tweet.user && tweet.user.img && (
+                        <img
+                          className="test-avatar"
+                          src="./images/icons8-user-avatar-50.png"
+                          alt=""
+                        />
+                        // <img
+                        //   className="randomImg"
+                        //   src={tweet.user.img}
+                        //   alt="User Profile"
+                        // />
+                      )}
+
+                      <h5> {tweet.user && tweet.user.name}</h5>
+                      <p className="tweetTime">
+                        {formatDate(tweet.created_at)}
+                      </p>
+                      <p className="tweetContent"> {tweet.text}</p>
+                      <Footer />
                     </li>
                   ))
                 ) : (
