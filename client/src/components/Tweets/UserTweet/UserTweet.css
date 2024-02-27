@@ -29,16 +29,7 @@
    
   } 
 
-/* .tweet-container{
- width: 100%;
- display:flex;
- align-items: center;
- justify-content: center;
- text-align:center ; 
- margin-left: 5px;
- margin-bottom: 80px;
- 
-}   */
+
 
  .search-form{
   margin-top: 180px;
@@ -63,44 +54,9 @@
   
 } 
 /* 
-.card-container{
+.card-message{
   margin-top: 250px;
 }  */
-
-/* .card_content{
-  display: flex;
-  flex-direction: column;
-  background-color: #f9f9f9;
-  font-family: Arial, Helvetica, sans-serif;
-  max-width:420px;
-  height:auto;
-  border-radius: 8px; 
-  
-}
-*/
-
-
- /* .card-message{
-  max-width:450px;
-  height:auto;
-  color:rgb(75, 73, 73);
-  font-size: large;
-  font-weight: 400;
-   text-align: center;
-   margin-left: 650px;
-  padding-left: 18%;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding-bottom: 1px;
-  padding:15px;
-  background-color: #f9f9f9;
-  border-radius: 7px;
-  border-bottom: 2px solid rgb(202, 201, 201);
-  
- }  */
-
-
- 
 
  li{
   color:rgb(75, 73, 73);
@@ -110,10 +66,10 @@
   display: inline-block;
   justify-items: center;
   margin-left: 450px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  padding-bottom: 1px;
-  padding:15px;
+  /* margin-top: 1px; */
+  /* margin-bottom: 5px; */
+  /* padding-top: 5px; */
+  /* padding:15px; */
   border-radius: 7px;
   font-size: medium;
   list-style: none;
@@ -122,41 +78,37 @@
   
 }
 
-.test-avatar{
-  background-color: aqua;
-  width: 50px;
-  height:50px;
-  border-radius: 50%; 
-  margin-bottom:20px;
-  margin-top:10px;   
-  margin-left: 10px;
-}
 
 
 .randomImg{
- background-color: aqua;
+  display: inline-flex;
   width: 50px;
   height:50px;
   border-radius: 50%; 
-  margin-bottom:20px;
+  /* margin-bottom:20px; */
   margin-top:10px;   
-  margin-left: 10px;
+  /* margin-left: 10px; */ 
  }
 
 h5{
-  display: inline-flex;
+  display: inline-block;
   font-size: medium;
-  margin-top:3px;
-  margin-left:35px;
+  margin-top:-35px;
+  margin-left:55px;
   color:rgb(93, 81, 81)
  
 }
 
 .tweetTime{
-  display: inline-block;
+  display: inline-flex;
+  /* flex-wrap: wrap; */
+  justify-content:flex-end;
+  margin-top: -21px;
   margin-bottom:3px;
+ margin-left: 55px;
 }
 .tweetContent{
-  margin-top: 3px;
-  margin-left: 35px;
+  margin-top: 15px;
+  margin-left: 55px;
+  margin-right: 5px;
 }

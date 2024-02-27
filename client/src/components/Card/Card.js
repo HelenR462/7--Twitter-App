@@ -23,8 +23,6 @@ function Card({ selectedUser, randomTweet, imgSrc }) {
         <div>
           <h4 className="userName">{selectedUser.name}</h4>
 
-          {/* <h5>{selectedUser.name}</h5> */}
-
           {randomTweet && (
             <div className="tweet-container">
               <p className="tweet_time">{formatDate(randomTweet.created_at)}</p>
