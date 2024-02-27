@@ -122,8 +122,8 @@ console.log("randomTweetIndex:",randomTweetIndex)
                 id={user.id}
                 onClick={handleImageOnClick}
               />
-              <p className="avatar-userName">{user.name}</p>
-              <h5>{user.text}</h5>
+              {/* <p className="avatar-userName">{user.name}</p> */}
+              {/* <h5>{user.text}</h5> */}
             </div>
           ))}
         </div>

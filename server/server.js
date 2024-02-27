@@ -59,25 +59,38 @@ app.get("/api/randomUser", async (req, res) => {
 
   try {
     const response = await axios.get(
-      `https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,author_id&user.fields=profile_image_url&expansions=attachments.media_keys`,
+      `https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,author_id&user.fields=profile_image_url`,
       config
     );
 
     const tweets = response.data.data;
-    // console.log("tweet.user.img:", tweets.user.img);
-    // Fetch user details for each tweet
+
     const tweetUserData = await Promise.all(
       tweets.map(async (tweet) => {
-        const userResponse = await axios.get(
-          `https://api.twitter.com/2/users/${tweet.author_id}`,
-          config
-        );
-        const userData = userResponse.data.data;
+        let userImg = "";
+        let userName = "";
+     
+
+        if (tweet.author_id) {
+          const userResponse = await axios.get(
+            `https://api.twitter.com/2/users/${tweet.author_id}`,
+            config
+          );
+          const userData = userResponse.data.data;
+
+          if (userData && userData.profile_image_url) {
+            userImg = userData.profile_image_url;
+          }
+          if (userData && userData.name) {
+            userName = userData.name;
+           
+          }
+        }
         return {
           ...tweet,
           user: {
-            name: userData.name,
-            img: userData.profile_image_url,
+            name: userName,
+            img: userImg,
           },
         };
       })
@@ -93,9 +106,3 @@ app.get("/api/randomUser", async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-// .then(function (response) {
-//   console.log(response.data);
-//   res.json(response.data.data);
-//   console.log("search:", search);
-// })

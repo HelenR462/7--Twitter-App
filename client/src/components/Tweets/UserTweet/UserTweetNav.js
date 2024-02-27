@@ -95,19 +95,15 @@ function UserTweetNav() {
                     <li key={tweet.id}>
                       {tweet.user && tweet.user.img && (
                         <img
-                          className="test-avatar"
-                          src="./images/icons8-user-avatar-50.png"
-                          alt=""
+                          className="randomImg"
+                           src={tweet.user.img}
+                          // src="../images/icons8-user-avatar-50.png"
+                          alt="User Profile"
                         />
-                        // <img
-                        //   className="randomImg"
-                        //   src={tweet.user.img}
-                        //   alt="User Profile"
-                        // />
                       )}
-
                       <h5> {tweet.user && tweet.user.name}</h5>
                       <p className="tweetTime">
+                        {tweet.screen_name}
                         {formatDate(tweet.created_at)}
                       </p>
                       <p className="tweetContent"> {tweet.text}</p>

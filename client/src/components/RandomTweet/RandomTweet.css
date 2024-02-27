@@ -42,13 +42,13 @@
   border-radius: 50%; 
   margin-bottom:20px;
   margin-top:10px;   
-  margin-left: 10px;
+  margin-left: 1px;
+
 }
 
 
 li{
   color:rgb(75, 73, 73);
-  max-width:450px;
   height:auto;
   align-items: center;
   display: flex;
@@ -65,15 +65,36 @@ li{
   background-color: #f9f9f9;
   
 }
-  
+/*   
 h4{
   margin-top:-35px;
   margin-left:65px;
   color:rgb(122, 121, 121)
-}
+} */
 
-h5{
+/* h5{
   margin-top:-35px;
   margin-left:75px;
   color:rgb(214, 209, 209)
-}
+} */
+
+/* .tweet_time{
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content:flex-end;
+   margin-top: -20px; 
+  margin-bottom:3px;
+ margin-left: 55px;
+} */ 
+
+/* 
+.card-container{
+ width: 450px;
+ display:binline-block;
+ align-items: center;
+ justify-content: center;
+ text-align:center ; 
+ margin-left: 5px;
+ margin-bottom: 80px;
+ 
+}   */
