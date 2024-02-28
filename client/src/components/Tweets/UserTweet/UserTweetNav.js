@@ -3,19 +3,18 @@ import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
 import Footer from "../../Footer";
-// import FaveTweets from "./FaveTweets";
+
 
 function formatDate(timestamp) {
   const date = new Date(timestamp);
-  const options = {
+  return date.toLocaleString("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
-  };
-  return date.toLocaleString("en-US", options);
+  });
 }
 
 function UserTweetNav() {
@@ -96,8 +95,7 @@ function UserTweetNav() {
                       {tweet.user && tweet.user.img && (
                         <img
                           className="randomImg"
-                           src={tweet.user.img}
-                          // src="../images/icons8-user-avatar-50.png"
+                          src={tweet.user.img}
                           alt="User Profile"
                         />
                       )}

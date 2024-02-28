@@ -50,7 +50,6 @@ li{
 
 .tweet_time{
   display:inline-flex;
-  /* justify-content: center; */
   margin-bottom:6px;
   margin-top: -18px;
   margin-left:75px;
@@ -60,6 +59,5 @@ li{
  display:inline-block; 
   margin-top: 10px;
   margin-left: 75px;
-  /* justify-content: center; */
   margin-right: 20px;
 }
