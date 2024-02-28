@@ -69,21 +69,19 @@ app.get("/api/randomUser", async (req, res) => {
       tweets.map(async (tweet) => {
         let userImg = "";
         let userName = "";
-     
 
         if (tweet.author_id) {
           const userResponse = await axios.get(
-            `https://api.twitter.com/2/users/${tweet.author_id}`,
+            `https://api.twitter.com/2/users/${tweet.author_id}?user.fields=profile_image_url`,
             config
           );
           const userData = userResponse.data.data;
-
+          console.log(userData);
           if (userData && userData.profile_image_url) {
             userImg = userData.profile_image_url;
           }
           if (userData && userData.name) {
             userName = userData.name;
-           
           }
         }
         return {

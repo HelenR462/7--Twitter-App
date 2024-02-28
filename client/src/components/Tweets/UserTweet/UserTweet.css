@@ -91,24 +91,24 @@
  }
 
 h5{
-  display: inline-block;
+  display: flex;
   font-size: medium;
-  margin-top:-35px;
-  margin-left:55px;
-  color:rgb(93, 81, 81)
- 
+  margin-top:-45px; 
+  margin-left:60px;
+  color:rgb(93, 81, 81);
+  flex-wrap: wrap;
 }
 
 .tweetTime{
   display: inline-flex;
-  /* flex-wrap: wrap; */
+ 
   justify-content:flex-end;
   margin-top: -21px;
   margin-bottom:3px;
- margin-left: 55px;
+ margin-left: 60px;
 }
 .tweetContent{
   margin-top: 15px;
-  margin-left: 55px;
+  margin-left:60px;
   margin-right: 5px;
 }
