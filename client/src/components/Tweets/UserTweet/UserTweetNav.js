@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
 import Footer from "../../Footer";
-
+// import FaveTweets from "./FaveTweets";
 
 function formatDate(timestamp) {
   const date = new Date(timestamp);
@@ -33,7 +33,7 @@ function UserTweetNav() {
         const res = await axios.get(`/api/randomUser?search=${search}`);
         console.log("res.data: ", res.data);
 
-        if (Array.isArray(res.data)) {
+        if (Array.isArray(res.data) && res.data.length > 0) {
           setUsersData(res.data);
           setUserNotFound(false);
         } else {
@@ -42,8 +42,12 @@ function UserTweetNav() {
         }
       } catch (error) {
         console.error("Error searching:", error);
+        if (error.response && error.response.status === 404) {
+          setUserNotFound("User not found");
+        } else {
+          setUserNotFound("Error searching for user");
+        }
         setUsersData([]);
-        setUserNotFound(true);
       } finally {
         setLoading(false);
       }
@@ -96,6 +100,7 @@ function UserTweetNav() {
                         <img
                           className="randomImg"
                           src={tweet.user.img}
+                          // src="../images/icons8-user-avatar-50.png"
                           alt="User Profile"
                         />
                       )}

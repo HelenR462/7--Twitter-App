@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 
 function RandomTweet() {
   const [selectedUser, setSelectedUser] = useState();
-  const [faveUser, setFaveUser] = useState([]);
+  const [ setFaveUser] = useState([]);
   const [randomTweet, setRandomTweet] = useState([]);
   const [randomTweetIndex, setRandomTweetIndex] = useState();
 

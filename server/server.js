@@ -8,7 +8,6 @@ const port = 3001;
 
 app.use(express.json());
 
-// Handle GET requests to /api route
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
@@ -65,6 +64,10 @@ app.get("/api/randomUser", async (req, res) => {
 
     const tweets = response.data.data;
 
+    if (!tweets || tweets.length === 0) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     const tweetUserData = await Promise.all(
       tweets.map(async (tweet) => {
         let userImg = "";
@@ -97,7 +100,11 @@ app.get("/api/randomUser", async (req, res) => {
     res.json(tweetUserData);
   } catch (err) {
     console.error("Error from Twitter API:", err.response?.data || err.message);
-    res.status(500).json({ error: "Twitter API request failed" });
+    if (err.response && err.response.status === 404) {
+      return res.status(404).json({ error: "User not found" });
+    } else {
+    return res.status(500).json({ error: "Twitter API request failed" });
+    }
   }
 });
 
