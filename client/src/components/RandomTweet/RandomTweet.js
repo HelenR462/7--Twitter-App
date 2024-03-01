@@ -121,8 +121,11 @@ function RandomTweet() {
                 id={user.id}
                 onClick={handleImageOnClick}
               />
+            <p className="avatar-userName">{user.name}</p> 
+          
             </div>
           ))}
+         
         </div>
       </div>
 
