@@ -103,7 +103,7 @@ app.get("/api/randomUser", async (req, res) => {
     if (err.response && err.response.status === 404) {
       return res.status(404).json({ error: "User not found" });
     } else {
-    return res.status(500).json({ error: "Twitter API request failed" });
+      return res.status(500).json({ error: "Twitter API request failed" });
     }
   }
 });
