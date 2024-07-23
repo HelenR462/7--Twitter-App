@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./components/HomePage/HomeMain";
+import RandomTweet from "./components/RandomTweet/RandomTweet";
+import UserTweet from "./components/Tweets/UserTweet/UserTweet";
+import UserTweetNav from "./components/Tweets/UserTweet/UserTweetNav";
+import UserTweetCard from "./components/Tweets/TweetCard/UserTweetCard";
+import FaveTweets from "./components/Tweets/UserTweet/FaveTweets";
+import Card from "./components/Card/Card";
+import Footer from "./components/Footer";
+import NoPage from "./components/NoPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <BrowserRouter>
+        <div className="app">
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/RandomTweet" element={<RandomTweet />}></Route>
+            <Route path="/UserTweet" element={<UserTweet />}></Route>
+            <Route path="/UserTweetNav" element={<UserTweetNav />}></Route>
+            <Route path="/UserTweetCard" element={<UserTweetCard />}></Route>
+            <Route path="/Card" element={<Card />}></Route>
+            <Route path="/FaveTweets" element={<FaveTweets />}></Route>
+            <Route path="/Footer" element={<Footer />}></Route>
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
