@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./RandomTweet.css";
-import RandomNavBar from "../RandomTweet/RandomNavBar";
+import RandomNavBar from "./RandomNavBar";
 import Card from "../Card/Card";
 
 function RandomTweet() {
   const [selectedUser, setSelectedUser] = useState();
-  const [ setFaveUser] = useState([]);
+  const [setFaveUser] = useState([]);
   const [randomTweet, setRandomTweet] = useState([]);
   const [randomTweetIndex, setRandomTweetIndex] = useState();
 
@@ -121,11 +121,9 @@ function RandomTweet() {
                 id={user.id}
                 onClick={handleImageOnClick}
               />
-            <p className="avatar-userName">{user.name}</p> 
-          
+              <p className="avatar-userName">{user.name}</p>
             </div>
           ))}
-         
         </div>
       </div>
 
