@@ -8,6 +8,8 @@ const port = 3001;
 
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "..", "client-alt", "dist")));
+
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
@@ -106,6 +108,10 @@ app.get("/api/randomUser", async (req, res) => {
       return res.status(500).json({ error: "Twitter API request failed" });
     }
   }
+});
+
+app.get("/", async (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "client-alt", "dist", "index.html"));
 });
 
 app.listen(port, () => {
