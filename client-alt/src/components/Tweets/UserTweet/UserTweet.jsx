@@ -11,12 +11,10 @@ function UserTweet() {
 
   useEffect(() => {
     if (isLoaded.current === false && faveUserId !== null) {
-      // console.log("faveUserId :", faveUserId);
-      fetch(`/api/faveUser?faveUserId=${faveUserId}`)
+        fetch(`/api/tweets/search?faveUserId=${faveUserId}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log("data: ", data);
-          setUsers(data);
+         setUsers(data);
           setFaveUserId(data)
           isLoaded.current = true;
         })

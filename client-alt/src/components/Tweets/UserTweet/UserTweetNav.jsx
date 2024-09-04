@@ -30,7 +30,7 @@ function UserTweetNav() {
       try {
         setLoading(true);
 
-        const res = await axios.get(`/api/randomUser?search=${search}`);
+        const res = await axios.get(`/api/tweets/random?search=${search}`);
         console.log("res.data: ", res.data);
 
         if (Array.isArray(res.data) && res.data.length > 0) {
@@ -100,8 +100,7 @@ function UserTweetNav() {
                         <img
                           className="randomImg"
                           src={tweet.user.img}
-                          // src="../images/icons8-user-avatar-50.png"
-                          alt="User Profile"
+                         alt="User Profile"
                         />
                       )}
                       <h5> {tweet.user && tweet.user.name}</h5>

@@ -4,7 +4,7 @@
   "description": "Full Stack React Project.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start --prefix client & npm run start --prefix server"
+    "start": "npm run dev --prefix client-alt & node server.js --prefix server"
   },
   "author": "",
   "license": "ISC",

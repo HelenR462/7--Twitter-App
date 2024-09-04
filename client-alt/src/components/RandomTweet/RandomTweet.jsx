@@ -60,7 +60,7 @@ function RandomTweet() {
       console.log("useEffect Ran: ", selectedUser);
       axios
         .get(
-          `/api/faveUser?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUser=${selectedUser.tweet}&randomTweetIndex=${randomTweetIndex}`
+          `/api/tweets/search?faveUser=${selectedUser.name}&faveUserId=${selectedUser.id}&faveUser=${selectedUser.tweet}&randomTweetIndex=${randomTweetIndex}`
         )
         .then((data) => {
           setFaveUser(data.data.tweet);
@@ -86,7 +86,7 @@ function RandomTweet() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `/api/faveUser?faveUserId=${selectedUserId}`
+          `/api/tweets/search?faveUserId=${selectedUserId}`
         );
 
         console.log("randomTweet: ", response.data.tweet);

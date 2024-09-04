@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//  import Card from "./Card/Card";
+
 
 function Footer() {
   const [likesCounter, setLikesCounter] = useState(0);
@@ -10,9 +10,7 @@ function Footer() {
 
   return (
     <div>
-      {/* <Card /> */}
-      {/* <hr></hr>  */}
-      <div className="card-footer">
+        <div className="card-footer">
         <div className="icons">
           <div className="horizontal-line">
             <img
