@@ -31,7 +31,7 @@ function UserTweetNav() {
         setLoading(true);
 
         const res = await axios.get(`/api/tweets/random?search=${search}`);
-        console.log("res.data: ", res.data);
+        // console.log("res.data: ", res.data);
 
         if (Array.isArray(res.data) && res.data.length > 0) {
           setUsersData(res.data);

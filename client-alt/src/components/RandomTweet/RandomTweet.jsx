@@ -10,7 +10,7 @@ function RandomTweet() {
   const [randomTweet, setRandomTweet] = useState([]);
   const [randomTweetIndex, setRandomTweetIndex] = useState();
 
-  console.log("randomTweetIndex:", randomTweetIndex);
+  // console.log("randomTweetIndex:", randomTweetIndex);
 
   const isLoaded = useRef(false);
 
